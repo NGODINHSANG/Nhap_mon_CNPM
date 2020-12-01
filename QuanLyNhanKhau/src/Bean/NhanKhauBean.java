@@ -64,7 +64,7 @@ public class NhanKhauBean {
     }
     
     //@Override
-   /* public String toString() {
+    public String toString() {
         String res =  "<html><style>p {padding: 5px; margin-left: 20px} table, th, td {border: 1px solid black; border-collapse: collapse;} table {width: 500px}</style> <div>"
                 + "<h3>Thông tin cơ bản:"
                 + "<p>Họ tên: <b>" + nhanKhauModel.getHoTen() + "</p>"
@@ -132,5 +132,5 @@ public class NhanKhauBean {
         res +=  "</table>"
                 + "</div></html>";
         return res;
-    }*/
+    }
 }
