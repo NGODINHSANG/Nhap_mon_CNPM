@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Quanlythuphi;
+package models;
 
 import java.util.Date;
 
@@ -12,7 +12,7 @@ import java.util.Date;
  * @author VuDinhHieu
  */
 public class ThongTinThuPhiModel {
-    private String maDotThu;
+     private String maDotThu;
     private String maHoKhau;
     private int soNhanKhau;
     private int tongSoTien;
@@ -57,6 +57,5 @@ public class ThongTinThuPhiModel {
     public void setNgayThu(Date ngayThu) {
         this.ngayThu = ngayThu;
     }
-    
     
 }
