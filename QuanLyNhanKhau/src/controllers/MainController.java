@@ -17,6 +17,7 @@ import views.HoKhauManagePanel;
 import views.HomePagePanel;
 import views.NhanKhauManagePanel;
 import views.ThongKePanel;
+import views.ThuPhiPanel;
 import views.TimKiemPanel;
 
 /**

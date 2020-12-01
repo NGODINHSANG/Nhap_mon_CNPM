@@ -12,10 +12,11 @@ import java.util.Date;
  * @author VuDinhHieu
  */
 public class ThongTinThuPhiModel {
-     private String maDotThu;
+    private String maDotThu;
     private String maHoKhau;
     private int soNhanKhau;
     private int tongSoTien;
+    private Date ngayTao;
     private Date ngayThu;
 
     public String getMaDotThu() {
@@ -58,4 +59,11 @@ public class ThongTinThuPhiModel {
         this.ngayThu = ngayThu;
     }
     
+    public void setNgayTao(Date ngayTao){
+        this.ngayTao = ngayTao;
+    }
+    
+    public Date getNgayTao(){
+        return ngayTao;
+    }
 }
