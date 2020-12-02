@@ -11,35 +11,42 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import Bean.ThongTinThuPhiBean;
 import controllers.ThuPhiManagerController.CapNhatController;
+import java.sql.Date;
+import models.ThongTinThuPhiModel;
 
 /**
  *
  * @author VuDinhHieu
  */
-public class CapNhatDotThuJFrame extends javax.swing.JFrame {
+public class CapNhatThongTinThuPhiJFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form CapNhatDotThu
      */
+    
     private ThongTinThuPhiBean thongTinThuPhiBean;
     private CapNhatController controller;
     private JFrame parentFrame;
     
-    public CapNhatDotThuJFrame() {
+    public CapNhatThongTinThuPhiJFrame() {
+       
+        //this.parentFrame = parentJFrame;
+        this.thongTinThuPhiBean = new ThongTinThuPhiBean();
         initComponents();
-        setTitle("Thêm mới nhân khẩu");
+        setTitle("Cập nhật thông tin thu phí");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        controller = new CapNhatController();
         
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 if (JOptionPane.showConfirmDialog(null, "Are you sure to close??", "Warning!!", JOptionPane.YES_NO_OPTION) == 0) {
-                    dispose();
+                    close();
                 }
             }});
  }
 
-        void close() {
+void close() {
         this.parentFrame.setEnabled(true);
         dispose();
     }
@@ -53,10 +60,10 @@ public class CapNhatDotThuJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        checkButton = new javax.swing.JButton();
-        maDotThu = new javax.swing.JTextField();
+        CheckIDDotThu = new javax.swing.JButton();
+        idDotThu = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        maHoKhau = new javax.swing.JTextField();
+        idHoKhau = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         soTien = new javax.swing.JTextField();
@@ -68,6 +75,10 @@ public class CapNhatDotThuJFrame extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        CheckIDHoKhau = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        soNhanKhau = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -76,17 +87,17 @@ public class CapNhatDotThuJFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        checkButton.setBackground(new java.awt.Color(255, 255, 255));
-        checkButton.setText("Check");
-        checkButton.addActionListener(new java.awt.event.ActionListener() {
+        CheckIDDotThu.setBackground(new java.awt.Color(255, 255, 255));
+        CheckIDDotThu.setText("Check");
+        CheckIDDotThu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkButtonActionPerformed(evt);
+                CheckIDDotThuActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Mã đợt thu");
+        jLabel1.setText("ID đợt thu");
 
-        jLabel2.setText("Mã hộ khẩu");
+        jLabel2.setText("ID hộ khẩu");
 
         jLabel3.setText("Số tiền");
 
@@ -122,47 +133,70 @@ public class CapNhatDotThuJFrame extends javax.swing.JFrame {
         jLabel8.setForeground(java.awt.Color.red);
         jLabel8.setText("(*)");
 
+        CheckIDHoKhau.setText("Check");
+        CheckIDHoKhau.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CheckIDHoKhauActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Số nhân khẩu");
+
+        jLabel10.setForeground(java.awt.Color.red);
+        jLabel10.setText("(*)");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(114, 114, 114)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(maHoKhau)
-                    .addComponent(maDotThu)
-                    .addComponent(soTien)
-                    .addComponent(ngayThu, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(checkButton))
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
-                .addContainerGap(106, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cancel)
                 .addGap(18, 18, 18)
                 .addComponent(update)
                 .addGap(52, 52, 52))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(114, 114, 114)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(soNhanKhau))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(idHoKhau)
+                            .addComponent(idDotThu)
+                            .addComponent(soTien)
+                            .addComponent(ngayThu, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel5)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(CheckIDDotThu))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel6)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(CheckIDHoKhau, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel7)
+                        .addComponent(jLabel8))
+                    .addComponent(jLabel10))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(maDotThu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(checkButton)
+                    .addComponent(idDotThu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CheckIDDotThu)
                     .addComponent(jLabel1)
                     .addComponent(jLabel5))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,19 +206,25 @@ public class CapNhatDotThuJFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(maHoKhau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(23, 23, 23)
+                            .addComponent(idHoKhau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CheckIDHoKhau))))
+                .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(jLabel9)
+                    .addComponent(soNhanKhau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(soTien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ngayThu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4)
-                    .addComponent(ngayThu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancel)
                     .addComponent(update))
@@ -208,28 +248,48 @@ public class CapNhatDotThuJFrame extends javax.swing.JFrame {
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
         // TODO add your handling code here:
         if (JOptionPane.showConfirmDialog(null, "Are you sure to close??", "Warning!!", JOptionPane.YES_NO_OPTION) == 0) {
-                    dispose();
+                    close();
                 }
     }//GEN-LAST:event_cancelActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
         // TODO add your handling code here:
-        if(this.checkInForm()) dispose();
-      if (JOptionPane.showConfirmDialog(null, "Are you sure to close??", "Warning!!", JOptionPane.YES_NO_OPTION) == 0) {
-                    dispose();}
-        
+        if(this.checkInForm()){
+            ThongTinThuPhiModel temp = this.thongTinThuPhiBean.getThongTinThuPhiModel();
+            temp.setIDDotThu(Integer.parseInt(idDotThu.getText()));
+            temp.setIDHoKhau(Integer.parseInt(idHoKhau.getText()));
+            temp.setSoNhanKhau(Integer.parseInt(soNhanKhau.getText()));
+            temp.setTongSoTien(Integer.parseInt(soTien.getText()));
+            temp.setNgayThu((Date) ngayThu.getDate());
+            try{
+                if(this.controller.capNhatThongTin(this.thongTinThuPhiBean)){
+                    JOptionPane.showMessageDialog(null, "Thêm thành công!!");
+                    close();
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+        }  
     }//GEN-LAST:event_updateActionPerformed
 
-    private void checkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkButtonActionPerformed
+    private void CheckIDDotThuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckIDDotThuActionPerformed
         // TODO add your handling code here:
-        if(controller.checkMaThuPhi())
-            JOptionPane.showMessageDialog(rootPane, "Không tìm thấy mã thu phí", "Warning", JOptionPane.WARNING_MESSAGE);
+        if(controller.checkIDHoKhau(Integer.parseInt(idDotThu.getText())))
+            JOptionPane.showMessageDialog(rootPane, "Không tìm thấy mã đợt thu", "Warning", JOptionPane.WARNING_MESSAGE);
 
-    }//GEN-LAST:event_checkButtonActionPerformed
+    }//GEN-LAST:event_CheckIDDotThuActionPerformed
+
+    private void CheckIDHoKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckIDHoKhauActionPerformed
+        // TODO add your handling code here:
+        if(controller.checkIDDotThu(Integer.parseInt(idHoKhau.getText())))
+            JOptionPane.showMessageDialog(rootPane, "Không tìm thấy mã đợt thu", "Warning", JOptionPane.WARNING_MESSAGE);
+
+    }//GEN-LAST:event_CheckIDHoKhauActionPerformed
 
     private boolean checkInForm(){
-        if(maDotThu.getText().trim().isEmpty()
-                || maHoKhau.getText().trim().isEmpty()
+        if(idDotThu.getText().trim().isEmpty()
+                || idHoKhau.getText().trim().isEmpty()
                 || ngayThu.getDate().toString().isEmpty()
                 || soTien.getText().isEmpty())
         {
@@ -254,15 +314,19 @@ public class CapNhatDotThuJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CapNhatDotThuJFrame().setVisible(true);
+                new CapNhatThongTinThuPhiJFrame().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CheckIDDotThu;
+    private javax.swing.JButton CheckIDHoKhau;
     private javax.swing.JButton cancel;
-    private javax.swing.JButton checkButton;
+    private javax.swing.JTextField idDotThu;
+    private javax.swing.JTextField idHoKhau;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -270,10 +334,10 @@ public class CapNhatDotThuJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField maDotThu;
-    private javax.swing.JTextField maHoKhau;
     private com.toedter.calendar.JDateChooser ngayThu;
+    private javax.swing.JTextField soNhanKhau;
     private javax.swing.JTextField soTien;
     private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables

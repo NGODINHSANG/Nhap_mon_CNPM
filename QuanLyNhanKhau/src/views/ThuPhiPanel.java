@@ -5,6 +5,7 @@
  */
 package views;
 
+import views.ThuPhiManagerFrame.CapNhatThongTinThuPhiJFrame;
 /**
  *
  * @author Ngo Viet Cuong
@@ -27,21 +28,45 @@ public class ThuPhiPanel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        capNhatBtn = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        capNhatBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        capNhatBtn.setText("Cập nhật");
+        capNhatBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                capNhatBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(284, Short.MAX_VALUE)
+                .addComponent(capNhatBtn)
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addComponent(capNhatBtn)
+                .addContainerGap(179, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void capNhatBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_capNhatBtnActionPerformed
+        // TODO add your handling code here:
+        CapNhatThongTinThuPhiJFrame capNhatThongTinThuPhiJFrame = new CapNhatThongTinThuPhiJFrame();
+        capNhatThongTinThuPhiJFrame.setLocationRelativeTo(null);
+        capNhatThongTinThuPhiJFrame.setResizable(false);
+        capNhatThongTinThuPhiJFrame.setVisible(true);
+    }//GEN-LAST:event_capNhatBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +104,6 @@ public class ThuPhiPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton capNhatBtn;
     // End of variables declaration//GEN-END:variables
 }
