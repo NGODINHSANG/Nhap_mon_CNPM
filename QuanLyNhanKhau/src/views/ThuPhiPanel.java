@@ -4,23 +4,25 @@
  * and open the template in the editor.
  */
 package views;
-
 import controllers.ThuPhiPanelController;
 import javax.swing.JFrame;
-
+import views.ThuPhiManagerFrame.ThemDotThuMoiJFrame;
+import views.ThuPhiManagerFrame.CapNhatDotThuJFrame;
+import views.ThuPhiManagerFrame.XoaDotThuJFrame;
+import views.ThuPhiManagerFrame.ThongKeChiTietJFrame;
 /**
  *
  * @author Ngo Viet Cuong
  */
 public class ThuPhiPanel extends javax.swing.JPanel {
 
-    private JFrame parentFrame;
+    private JFrame parentJFrame;
     private ThuPhiPanelController controller;
     /**
-     * Creates new form QuanLyThuPhi
+     * Creates new form ThuPhiPanel
      */
-    public ThuPhiPanel(JFrame parentFrame) {
-        this.parentFrame = parentFrame;
+    public ThuPhiPanel(JFrame parentJFrame) {
+        this.parentJFrame = parentJFrame;
         initComponents();
     }
 
@@ -33,22 +35,129 @@ public class ThuPhiPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        ThemMoiBtn = new javax.swing.JButton();
+        XoaBtn = new javax.swing.JButton();
+        ChiTietBtn = new javax.swing.JButton();
+        CapNhatBtn = new javax.swing.JButton();
+        TimKiemField = new javax.swing.JTextField();
+
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(857, 466));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 674, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 422, Short.MAX_VALUE)
+        );
+
+        ThemMoiBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        ThemMoiBtn.setText("Thêm mới");
+        ThemMoiBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ThemMoiBtnActionPerformed(evt);
+            }
+        });
+
+        XoaBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        XoaBtn.setText("Xóa");
+        XoaBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                XoaBtnActionPerformed(evt);
+            }
+        });
+
+        ChiTietBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        ChiTietBtn.setText("Chi tiết");
+        ChiTietBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChiTietBtnActionPerformed(evt);
+            }
+        });
+
+        CapNhatBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        CapNhatBtn.setText("Cập nhật");
+        CapNhatBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CapNhatBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ThemMoiBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ChiTietBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(XoaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CapNhatBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(TimKiemField, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(TimKiemField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(ThemMoiBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(CapNhatBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(XoaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ChiTietBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ThemMoiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThemMoiBtnActionPerformed
+        ThemDotThuMoiJFrame themDotThuMoiJFrame = new ThemDotThuMoiJFrame();
+        themDotThuMoiJFrame.setLocationRelativeTo(null);
+        themDotThuMoiJFrame.setResizable(false);
+        themDotThuMoiJFrame.setVisible(true);
+    }//GEN-LAST:event_ThemMoiBtnActionPerformed
+
+    private void XoaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_XoaBtnActionPerformed
+        XoaDotThuJFrame xoaDotThuJFrame = new XoaDotThuJFrame();
+        xoaDotThuJFrame.setLocationRelativeTo(null);
+        xoaDotThuJFrame.setResizable(false);
+        xoaDotThuJFrame.setVisible(true);
+    }//GEN-LAST:event_XoaBtnActionPerformed
+
+    private void ChiTietBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChiTietBtnActionPerformed
+        ThongKeChiTietJFrame thongKeChiTietJFrame = new ThongKeChiTietJFrame();
+        thongKeChiTietJFrame.setLocationRelativeTo(null);
+        thongKeChiTietJFrame.setResizable(false);
+        thongKeChiTietJFrame.setVisible(true);
+    }//GEN-LAST:event_ChiTietBtnActionPerformed
+
+    private void CapNhatBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CapNhatBtnActionPerformed
+        CapNhatDotThuJFrame capNhatDotThuJFrame = new CapNhatDotThuJFrame();
+        capNhatDotThuJFrame.setLocationRelativeTo(null);
+        capNhatDotThuJFrame.setResizable(false);
+        capNhatDotThuJFrame.setVisible(true);
+    }//GEN-LAST:event_CapNhatBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CapNhatBtn;
+    private javax.swing.JButton ChiTietBtn;
+    private javax.swing.JButton ThemMoiBtn;
+    private javax.swing.JTextField TimKiemField;
+    private javax.swing.JButton XoaBtn;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
