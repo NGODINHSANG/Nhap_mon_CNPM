@@ -5,10 +5,20 @@
  */
 package Bean;
 
+import models.ThongTinThuPhiModel;
 /**
  *
  * @author VuDinhHieu
  */
 public class ThongTinThuPhiBean {
+    private ThongTinThuPhiModel thongTinThuPhiModel;
+
+    public ThongTinThuPhiModel getThongTinThuPhiModel() {
+        return thongTinThuPhiModel;
+    }
+
+    public void setThongTinThuPhiModel(ThongTinThuPhiModel thongTinThuPhiModel) {
+        this.thongTinThuPhiModel = thongTinThuPhiModel;
+    }
     
 }
