@@ -80,7 +80,7 @@
                           <Component id="NhanKhauBtn" alignment="1" max="32767" attributes="0"/>
                           <Component id="HoKhauBtn" alignment="0" max="32767" attributes="0"/>
                           <Component id="ThongKeBtn" alignment="0" max="32767" attributes="0"/>
-                          <Component id="ThuPhiBtn" alignment="0" max="32767" attributes="0"/>
+                          <Component id="ThuPhiBtn" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -97,7 +97,7 @@
                       <Component id="ThongKeBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="ThuPhiBtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="161" max="32767" attributes="0"/>
+                      <EmptySpace pref="146" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -318,8 +318,8 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="new javax.swing.ImageIcon(getClass().getResource(&quot;/Icons/money.png&quot;))" type="code"/>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Icons/increasing-stocks-graphic.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Thu Ph&#xed;"/>
                   </Properties>
