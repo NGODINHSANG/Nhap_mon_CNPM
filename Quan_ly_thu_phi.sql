@@ -1,7 +1,7 @@
 USE quan_ly_nhan_khau;
 
 CREATE TABLE `dot_thu` (
-	`maDotThu` int(11) NOT NULL,
+	`maDotThu` varchar(100) NOT NULL,
     `tenDotThu` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
 	`loaiPhiThu` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
     `ngayBatDauThu` date DEFAULT NULL,
@@ -11,8 +11,8 @@ CREATE TABLE `dot_thu` (
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `thong_tin_thu_phi` (
-	`maDotThu` int(11) NOT NULL,
-    `maHoKhau` int(11) NOT NULL,
+	`maDotThu` varchar(100) NOT NULL,
+    `maHoKhau` varchar(100) NOT NULL,
     `soNhanKhau` int(11) DEFAULT NULL,
     `tongSoTien` int(11) DEFAULT NULL,
     `ngaythu` date DEFAULT NULL
