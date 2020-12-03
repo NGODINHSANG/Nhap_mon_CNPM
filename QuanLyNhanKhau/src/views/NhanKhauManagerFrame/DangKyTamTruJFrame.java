@@ -40,10 +40,7 @@ public class DangKyTamTruJFrame extends javax.swing.JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 close();
-            }
-            
-        });
-    }
+     }});}
     
     void close() {
         if (JOptionPane.OK_OPTION == JOptionPane.showConfirmDialog(null, "Are you sure to close?", "Warning!!", JOptionPane.YES_NO_OPTION)) {
