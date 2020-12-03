@@ -12,27 +12,27 @@ import java.util.Date;
  * @author VuDinhHieu
  */
 public class ThongTinThuPhiModel {
-    private String maDotThu;
-    private String maHoKhau;
+    private int idDotThu;
+    private int idHoKhau;
     private int soNhanKhau;
     private int tongSoTien;
     private Date ngayTao;
     private Date ngayThu;
 
-    public String getMaDotThu() {
-        return maDotThu;
+    public int getIDDotThu() {
+        return idDotThu;
     }
 
-    public void setMaDotThu(String maDotThu) {
-        this.maDotThu = maDotThu;
+    public void setIDDotThu(int idDotThu) {
+        this.idDotThu = idDotThu;
     }
 
-    public String getMaHoKhau() {
-        return maHoKhau;
+    public int getIDHoKhau() {
+        return idHoKhau;
     }
 
-    public void setMaHoKhau(String maHoKhau) {
-        this.maHoKhau = maHoKhau;
+    public void setIDHoKhau(int idHoKhau) {
+        this.idHoKhau = idHoKhau;
     }
 
     public int getSoNhanKhau() {
