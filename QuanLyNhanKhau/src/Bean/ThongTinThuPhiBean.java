@@ -5,6 +5,8 @@
  */
 package Bean;
 
+import java.util.ArrayList;
+import java.util.List;
 import models.ThongTinThuPhiModel;
 /**
  *
@@ -12,6 +14,11 @@ import models.ThongTinThuPhiModel;
  */
 public class ThongTinThuPhiBean {
     private ThongTinThuPhiModel thongTinThuPhiModel;
+    
+    
+    public ThongTinThuPhiBean(){
+        this.thongTinThuPhiModel = new ThongTinThuPhiModel();    
+    }
 
     public ThongTinThuPhiModel getThongTinThuPhiModel() {
         return thongTinThuPhiModel;

@@ -7,6 +7,7 @@ package controllers.ThuPhiManagerController;
 
 import Bean.ThongTinThuPhiBean;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,7 +30,8 @@ public boolean capNhatThongTin(ThongTinThuPhiBean thongTinThuPhiBean) throws SQL
             preparedStatement.setInt(2, thongTinThuPhiModel.getIDHoKhau());
             preparedStatement.setInt(3, thongTinThuPhiModel.getSoNhanKhau());
             preparedStatement.setInt(4, thongTinThuPhiModel.getTongSoTien());
-            preparedStatement.setDate(5, thongTinThuPhiModel.getNgayThu());
+            Date ngayThu = new Date(thongTinThuPhiModel.getNgayThu().getTime());
+            preparedStatement.setDate(5, ngayThu);
             preparedStatement.execute();
             preparedStatement.close();
             connection.close();

@@ -28,22 +28,28 @@ public class CapNhatThongTinThuPhiJFrame extends javax.swing.JFrame {
     private CapNhatController controller;
     private JFrame parentFrame;
     
-    public CapNhatThongTinThuPhiJFrame() {
+    public CapNhatThongTinThuPhiJFrame(){
+        initComponents();
+    }
+    
+    public CapNhatThongTinThuPhiJFrame(JFrame parentFrame) {
        
-        //this.parentFrame = parentJFrame;
+        this.parentFrame = parentFrame;
+        controller = new CapNhatController();
         this.thongTinThuPhiBean = new ThongTinThuPhiBean();
         initComponents();
-        setTitle("Cập nhật thông tin thu phí");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        controller = new CapNhatController();
-        
+        setTitle("Cập nhật thông tin thu phí");
+        parentFrame.setEnabled(false);
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 if (JOptionPane.showConfirmDialog(null, "Are you sure to close??", "Warning!!", JOptionPane.YES_NO_OPTION) == 0) {
                     close();
                 }
-            }});
+            }
+            
+        });
  }
 
 void close() {
@@ -247,9 +253,10 @@ void close() {
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
         // TODO add your handling code here:
-        if (JOptionPane.showConfirmDialog(null, "Are you sure to close??", "Warning!!", JOptionPane.YES_NO_OPTION) == 0) {
-                    close();
-                }
+          if (JOptionPane.showConfirmDialog(null, "Are you sure to close this??","Confirm",JOptionPane.YES_NO_OPTION) == 0) {
+            close();
+        }
+                
     }//GEN-LAST:event_cancelActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
@@ -260,7 +267,7 @@ void close() {
             temp.setIDHoKhau(Integer.parseInt(idHoKhau.getText()));
             temp.setSoNhanKhau(Integer.parseInt(soNhanKhau.getText()));
             temp.setTongSoTien(Integer.parseInt(soTien.getText()));
-            temp.setNgayThu((Date) ngayThu.getDate());
+            temp.setNgayThu(ngayThu.getDate());
             try{
                 if(this.controller.capNhatThongTin(this.thongTinThuPhiBean)){
                     JOptionPane.showMessageDialog(null, "Thêm thành công!!");
@@ -270,23 +277,35 @@ void close() {
                 System.out.println(e.getMessage());
                 JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
             }
-        }  
+        }
     }//GEN-LAST:event_updateActionPerformed
 
     private void CheckIDDotThuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckIDDotThuActionPerformed
         // TODO add your handling code here:
-        if(controller.checkIDHoKhau(Integer.parseInt(idDotThu.getText())))
-            JOptionPane.showMessageDialog(rootPane, "Không tìm thấy mã đợt thu", "Warning", JOptionPane.WARNING_MESSAGE);
-
+        if(this.checkIDDotThu()){
+            if(controller.checkIDDotThu(Integer.parseInt(idDotThu.getText())))
+            JOptionPane.showMessageDialog(rootPane, "OK","Check ID", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else    JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập hết các trường bắt buộc", "Warning", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_CheckIDDotThuActionPerformed
 
     private void CheckIDHoKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckIDHoKhauActionPerformed
         // TODO add your handling code here:
-        if(controller.checkIDDotThu(Integer.parseInt(idHoKhau.getText())))
-            JOptionPane.showMessageDialog(rootPane, "Không tìm thấy mã đợt thu", "Warning", JOptionPane.WARNING_MESSAGE);
-
+        if(this.checkIDHoKhau()){
+            if(controller.checkIDHoKhau(Integer.parseInt(idHoKhau.getText())))
+            JOptionPane.showMessageDialog(rootPane, "OK","Check ID", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else    JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập hết các trường bắt buộc", "Warning", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_CheckIDHoKhauActionPerformed
-
+    
+    private boolean checkIDDotThu(){
+        return !idDotThu.getText().trim().isEmpty();
+    }
+    
+    private boolean checkIDHoKhau(){
+        return !idHoKhau.getText().trim().isEmpty();
+    }
+    
     private boolean checkInForm(){
         if(idDotThu.getText().trim().isEmpty()
                 || idHoKhau.getText().trim().isEmpty()
@@ -299,25 +318,7 @@ void close() {
             return true;
     }
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
 
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CapNhatThongTinThuPhiJFrame().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CheckIDDotThu;
