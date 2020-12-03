@@ -147,7 +147,7 @@ public class ThuPhiPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_ThemMoiBtnActionPerformed
 
     private void XoaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_XoaBtnActionPerformed
-        XoaDotThuJFrame xoaDotThuJFrame = new XoaDotThuJFrame();
+        XoaDotThuJFrame xoaDotThuJFrame = new XoaDotThuJFrame(this.parentJFrame);
         xoaDotThuJFrame.setLocationRelativeTo(null);
         xoaDotThuJFrame.setResizable(false);
         xoaDotThuJFrame.setVisible(true);
