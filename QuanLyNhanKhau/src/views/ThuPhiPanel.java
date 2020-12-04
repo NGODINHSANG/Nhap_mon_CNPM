@@ -140,7 +140,7 @@ public class ThuPhiPanel extends javax.swing.JPanel {
 
 
     private void ThemMoiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThemMoiBtnActionPerformed
-        ThemDotThuMoiJFrame themDotThuMoiJFrame = new ThemDotThuMoiJFrame();
+        ThemDotThuMoiJFrame themDotThuMoiJFrame = new ThemDotThuMoiJFrame(this.parentJFrame);
         themDotThuMoiJFrame.setLocationRelativeTo(null);
         themDotThuMoiJFrame.setResizable(false);
         themDotThuMoiJFrame.setVisible(true);
