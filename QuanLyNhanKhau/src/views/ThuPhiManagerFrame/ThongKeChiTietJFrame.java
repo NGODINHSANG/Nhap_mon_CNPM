@@ -5,7 +5,7 @@
  */
 package views.ThuPhiManagerFrame;
 
-import controllers.ThuPhiManagerController.ThuPhiController;
+import controllers.ThuPhiManagerController.ThongKeChiTietController;
 import java.awt.event.WindowAdapter;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -17,7 +17,7 @@ import jdk.internal.net.http.common.Utils;
 public class ThongKeChiTietJFrame extends javax.swing.JFrame {
 
     private JFrame parentFrame;
-    private ThuPhiController controller;
+    private ThongKeChiTietController controller;
     
     public ThongKeChiTietJFrame(JFrame parentFrame) {
         
