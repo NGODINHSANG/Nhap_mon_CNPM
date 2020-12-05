@@ -4,15 +4,12 @@
  * and open the template in the editor.
  */
 package views;
-
-
 import controllers.ThuPhiPanelController;
 import javax.swing.JFrame;
 import views.ThuPhiManagerFrame.ThemDotThuMoiJFrame;
-import views.ThuPhiManagerFrame.CapNhatThongTinThuPhiJFrame;
+import views.ThuPhiManagerFrame.CapNhatDotThuJFrame;
 import views.ThuPhiManagerFrame.XoaDotThuJFrame;
 import views.ThuPhiManagerFrame.ThongKeChiTietJFrame;
-
 /**
  *
  * @author Ngo Viet Cuong
@@ -27,6 +24,9 @@ public class ThuPhiPanel extends javax.swing.JPanel {
     public ThuPhiPanel(JFrame parentJFrame) {
         this.parentJFrame = parentJFrame;
         initComponents();
+        controller = new ThuPhiPanelController(TimKiemField,jPanel1);
+        controller.setParentJFrame(parentJFrame);
+        controller.setData();
     }
 
     /**
@@ -37,6 +37,7 @@ public class ThuPhiPanel extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
         jPanel1 = new javax.swing.JPanel();
         ThemMoiBtn = new javax.swing.JButton();
         XoaBtn = new javax.swing.JButton();
@@ -50,11 +51,11 @@ public class ThuPhiPanel extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 674, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 422, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         ThemMoiBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -89,6 +90,13 @@ public class ThuPhiPanel extends javax.swing.JPanel {
             }
         });
 
+        TimKiemField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        TimKiemField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TimKiemFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -96,22 +104,21 @@ public class ThuPhiPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ThemMoiBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ChiTietBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(XoaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CapNhatBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(TimKiemField, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-
+                        .addComponent(TimKiemField, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 418, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ThemMoiBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CapNhatBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(XoaBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ChiTietBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(39, 39, 39)
                 .addComponent(TimKiemField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,32 +129,21 @@ public class ThuPhiPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(XoaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(ChiTietBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-
+                        .addComponent(ChiTietBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(215, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void capNhatBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_capNhatBtnActionPerformed
-
-    }//GEN-LAST:event_capNhatBtnActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-
-    // Variables declaration - do not modify                     
-
-
     private void ThemMoiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThemMoiBtnActionPerformed
-        ThemDotThuMoiJFrame themDotThuMoiJFrame = new ThemDotThuMoiJFrame(this.parentJFrame);
+        ThemDotThuMoiJFrame themDotThuMoiJFrame = new ThemDotThuMoiJFrame();
         themDotThuMoiJFrame.setLocationRelativeTo(null);
         themDotThuMoiJFrame.setResizable(false);
         themDotThuMoiJFrame.setVisible(true);
     }//GEN-LAST:event_ThemMoiBtnActionPerformed
 
     private void XoaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_XoaBtnActionPerformed
-        XoaDotThuJFrame xoaDotThuJFrame = new XoaDotThuJFrame(this.parentJFrame);
+        XoaDotThuJFrame xoaDotThuJFrame = new XoaDotThuJFrame();
         xoaDotThuJFrame.setLocationRelativeTo(null);
         xoaDotThuJFrame.setResizable(false);
         xoaDotThuJFrame.setVisible(true);
@@ -161,11 +157,15 @@ public class ThuPhiPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_ChiTietBtnActionPerformed
 
     private void CapNhatBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CapNhatBtnActionPerformed
-        CapNhatThongTinThuPhiJFrame capNhatThongTinThuPhiJFrame = new CapNhatThongTinThuPhiJFrame(this.parentJFrame);
-        capNhatThongTinThuPhiJFrame.setLocationRelativeTo(null);
-        capNhatThongTinThuPhiJFrame.setResizable(false);
-        capNhatThongTinThuPhiJFrame.setVisible(true);
+        CapNhatDotThuJFrame capNhatDotThuJFrame = new CapNhatDotThuJFrame();
+        capNhatDotThuJFrame.setLocationRelativeTo(null);
+        capNhatDotThuJFrame.setResizable(false);
+        capNhatDotThuJFrame.setVisible(true);
     }//GEN-LAST:event_CapNhatBtnActionPerformed
+
+    private void TimKiemFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimKiemFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TimKiemFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -175,6 +175,5 @@ public class ThuPhiPanel extends javax.swing.JPanel {
     private javax.swing.JTextField TimKiemField;
     private javax.swing.JButton XoaBtn;
     private javax.swing.JPanel jPanel1;
-
     // End of variables declaration//GEN-END:variables
 }
