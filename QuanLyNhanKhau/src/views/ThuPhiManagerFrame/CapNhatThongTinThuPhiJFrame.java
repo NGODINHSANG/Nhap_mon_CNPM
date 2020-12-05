@@ -21,7 +21,7 @@ public class CapNhatThongTinThuPhiJFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form CapNhatDotThu
-     */
+     */    
     
     private ThongTinThuPhiBean thongTinThuPhiBean;
     private CapNhatController controller;

@@ -7,6 +7,7 @@ package Bean;
 
 import java.util.ArrayList;
 import java.util.List;
+import models.HoKhauModel;
 import models.ThongTinThuPhiModel;
 /**
  *
@@ -14,18 +15,18 @@ import models.ThongTinThuPhiModel;
  */
 public class ThongTinThuPhiBean {
     private ThongTinThuPhiModel thongTinThuPhiModel;
-    private List<ThongTinThuPhiModel> listThongTinThuPhiModel;
-    
-    public ThongTinThuPhiBean(ThongTinThuPhiModel thongTinThuPhiModel, List<ThongTinThuPhiModel> listThongTinThuPhiModel){
+    private HoKhauModel hoKhauModel;
+
+    public ThongTinThuPhiBean(ThongTinThuPhiModel thongTinThuPhiModel, HoKhauModel hoKhauModel) {
         this.thongTinThuPhiModel = thongTinThuPhiModel;
-        this.listThongTinThuPhiModel = listThongTinThuPhiModel;
-    }
-    
-    public ThongTinThuPhiBean(){
-        this.thongTinThuPhiModel = new ThongTinThuPhiModel();
-        this.listThongTinThuPhiModel = new ArrayList<>();
+        this.hoKhauModel = hoKhauModel;
     }
 
+    public ThongTinThuPhiBean() {
+        this.thongTinThuPhiModel = new ThongTinThuPhiModel();
+        this.hoKhauModel = new HoKhauModel();
+    }
+   
     public ThongTinThuPhiModel getThongTinThuPhiModel() {
         return thongTinThuPhiModel;
     }
@@ -33,5 +34,5 @@ public class ThongTinThuPhiBean {
     public void setThongTinThuPhiModel(ThongTinThuPhiModel thongTinThuPhiModel) {
         this.thongTinThuPhiModel = thongTinThuPhiModel;
     }
-    
+        
 }
