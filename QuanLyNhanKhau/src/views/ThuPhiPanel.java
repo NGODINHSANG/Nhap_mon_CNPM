@@ -7,7 +7,7 @@ package views;
 import controllers.ThuPhiPanelController;
 import javax.swing.JFrame;
 import views.ThuPhiManagerFrame.ThemDotThuMoiJFrame;
-import views.ThuPhiManagerFrame.CapNhatDotThuJFrame;
+import views.ThuPhiManagerFrame.CapNhatThongTinThuPhiJFrame;
 import views.ThuPhiManagerFrame.XoaDotThuJFrame;
 import views.ThuPhiManagerFrame.ThongKeChiTietJFrame;
 /**
@@ -143,7 +143,7 @@ public class ThuPhiPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_ThemMoiBtnActionPerformed
 
     private void XoaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_XoaBtnActionPerformed
-        XoaDotThuJFrame xoaDotThuJFrame = new XoaDotThuJFrame();
+        XoaDotThuJFrame xoaDotThuJFrame = new XoaDotThuJFrame(this.parentJFrame);
         xoaDotThuJFrame.setLocationRelativeTo(null);
         xoaDotThuJFrame.setResizable(false);
         xoaDotThuJFrame.setVisible(true);
@@ -157,10 +157,10 @@ public class ThuPhiPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_ChiTietBtnActionPerformed
 
     private void CapNhatBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CapNhatBtnActionPerformed
-        CapNhatDotThuJFrame capNhatDotThuJFrame = new CapNhatDotThuJFrame();
-        capNhatDotThuJFrame.setLocationRelativeTo(null);
-        capNhatDotThuJFrame.setResizable(false);
-        capNhatDotThuJFrame.setVisible(true);
+        CapNhatThongTinThuPhiJFrame capNhatThongTinThuPhiJFrame = new CapNhatThongTinThuPhiJFrame(this.parentJFrame);
+        capNhatThongTinThuPhiJFrame.setLocationRelativeTo(null);
+        capNhatThongTinThuPhiJFrame.setResizable(false);
+        capNhatThongTinThuPhiJFrame.setVisible(true);
     }//GEN-LAST:event_CapNhatBtnActionPerformed
 
     private void TimKiemFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimKiemFieldActionPerformed

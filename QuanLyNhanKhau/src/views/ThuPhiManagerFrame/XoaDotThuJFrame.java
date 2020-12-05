@@ -21,6 +21,12 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
     /**
      * Creates new form XoaDotThuJFrame
      */
+    
+    
+    public XoaDotThuJFrame() {
+        initComponents();
+    }
+
     public XoaDotThuJFrame(JFrame parentFrame) {
         this.parentFrame = parentFrame;
         initComponents();
@@ -36,7 +42,6 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
                 }
             }
         });
-        
     }
     
     private void close(){
