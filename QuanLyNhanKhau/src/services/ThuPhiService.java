@@ -47,4 +47,8 @@ public class ThuPhiService {
         }
         return list;
     }
+
+    public List<DotThuBean> search(String key) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
