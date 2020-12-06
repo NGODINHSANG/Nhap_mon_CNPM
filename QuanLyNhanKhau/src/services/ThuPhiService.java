@@ -47,8 +47,42 @@ public class ThuPhiService {
         }
         return list;
     }
-
-    public List<DotThuBean> search(String key) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    //Tim kiem dot thu theo ten
+    public List<DotThuBean> search(String keyword) {
+        List<DotThuBean> list = new ArrayList<>();
+        if(keyword.trim().isEmpty()){
+            return this.getListDotThu();
+        }
+        try{
+            String query = "SELECT * FROM dot_thu WHERE MATCH(tenDotThu) AGAINST ('"
+                            + keyword
+                            + "' IN NATURAL LANGUAGE MODE)";
+              
+            Connection connection = MysqlConnection.getMysqlConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()){
+                DotThuBean temp = new DotThuBean();
+                DotThuModel dotThu = temp.getDotThuModel();
+                dotThu.setID(rs.getInt("idDotThu"));
+                dotThu.setTenDotThu(rs.getString("tenDotThu"));
+                dotThu.setLoaiPhiThu(rs.getString("loaiPhiThu"));
+                dotThu.setNgayBatDauThu(rs.getDate("ngayBatDauThu"));
+                dotThu.setNgayKetThucThu(rs.getDate("ngayKetThucThu"));
+                dotThu.setSoTienTrenMotNhanKhau(rs.getInt("soTienTrenMotNhanKhau"));
+                dotThu.setNgayTao(rs.getDate("ngayTao"));
+                list.add(temp);
+            }
+            preparedStatement.close();
+            connection.close();
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        return list;
     }
+    
+
+   
 }

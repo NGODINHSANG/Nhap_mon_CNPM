@@ -3,7 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/NhapmonCNPM/Nhap_mon_CNPM/QuanLyNhanKhau/src/views/ThuPhiManagerFrame/XoaDotThuJFrame.java</file>
+            <file>file:/G:/btl/Nhap_mon_CNPM/QuanLyNhanKhau/src/Bean/DotThuBean.java</file>
+            <file>file:/G:/btl/Nhap_mon_CNPM/QuanLyNhanKhau/src/services/ThuPhiService.java</file>
+            <file>file:/G:/btl/Nhap_mon_CNPM/QuanLyNhanKhau/src/controllers/ThuPhiPanelController.java</file>
         </group>
     </open-files>
 </project-private>
