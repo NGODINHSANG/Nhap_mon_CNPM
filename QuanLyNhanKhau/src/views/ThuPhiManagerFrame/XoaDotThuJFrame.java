@@ -5,6 +5,7 @@
  */
 package views.ThuPhiManagerFrame;
 
+import controllers.ThuPhiManagerController.XoaController;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
@@ -17,12 +18,11 @@ import javax.swing.JOptionPane;
 public class XoaDotThuJFrame extends javax.swing.JFrame {
     //Declare
     private JFrame parentFrame;
-    
+    private XoaController controller;
     /**
      * Creates new form XoaDotThuJFrame
      */
-    
-    
+
     public XoaDotThuJFrame() {
         initComponents();
     }
@@ -30,6 +30,7 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
     public XoaDotThuJFrame(JFrame parentFrame) {
         this.parentFrame = parentFrame;
         initComponents();
+        controller = new XoaController();
         setTitle("XÓA ĐỢT THU PHÍ");
         this.parentFrame.setEnabled(false);
         // confirm de thuc hien dong
@@ -139,7 +140,7 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    private boolean checkInform(){
+    private boolean checkTenDotThu(){
         return !tenDotThu.getText().trim().isEmpty();
     }
     
@@ -156,8 +157,10 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
 
     private void xacNhanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xacNhanBtnActionPerformed
         // TODO add your handling code here:
-        if(checkInform()){
-            
+        if(this.checkTenDotThu()){
+            if(controller.checkTenDotThu(tenDotThu.getText())){
+                JOptionPane.showMessageDialog(rootPane, "OK", "Check Tên Đợt Thu", JOptionPane.INFORMATION_MESSAGE);
+            }
         }else{
             JOptionPane.showMessageDialog(rootPane, "Please Enter the required fields !", "Warning", JOptionPane.WARNING_MESSAGE);
         }
@@ -165,8 +168,10 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
 
     private void checkBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBtnActionPerformed
         // TODO add your handling code here:
-        if(checkInform()){
-            
+        if(this.checkTenDotThu()){
+            if(controller.checkTenDotThu(tenDotThu.getText())){
+                JOptionPane.showMessageDialog(rootPane, "OK", "Check Tên Đợt Thu", JOptionPane.INFORMATION_MESSAGE);
+            }
         }else{
             JOptionPane.showMessageDialog(rootPane, "Please Enter the required fields !", "Warning", JOptionPane.WARNING_MESSAGE);
         }
