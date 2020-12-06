@@ -24,9 +24,9 @@ public class ThuPhiPanel extends javax.swing.JPanel {
     public ThuPhiPanel(JFrame parentJFrame) {
         this.parentJFrame = parentJFrame;
         initComponents();
-//        controller = new ThuPhiPanelController(TimKiemField,jPanel1);
-//        controller.setParentJFrame(parentJFrame);
-//        controller.setData();
+        controller = new ThuPhiPanelController(TimKiemField,jPanel1);
+        controller.setParentJFrame(parentJFrame);
+        controller.setData();
     }
 
     /**
