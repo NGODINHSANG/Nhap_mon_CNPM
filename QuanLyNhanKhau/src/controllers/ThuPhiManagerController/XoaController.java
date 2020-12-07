@@ -23,7 +23,8 @@ public class XoaController {
         DotThuModel dotThuModel = dotThuBean.getDotThuModel();
         try{
             Connection connection = MysqlConnection.getMysqlConnection();
-            String query = "DELETE FROM thong_tin_thu_phi WHERE tenDotThu = ?";
+            String query = "DELETE FROM thong_tin_thu_phi WHERE idDotThu.thong_tin_thu_phi = idDotThu.dot_thu AND tenDotThu = ?;"
+                         + "DELETE FROM dot_thu WHERE tenDotThu = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, dotThuModel.getTenDotThu());
             preparedStatement.execute();

@@ -159,7 +159,9 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(this.checkTenDotThu()){
             if(controller.checkTenDotThu(tenDotThu.getText())){
-                JOptionPane.showMessageDialog(rootPane, "OK", "Check Tên Đợt Thu", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(rootPane, "OK ! Có đợt thu này trong hệ thống.", "Check Tên Đợt Thu", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Không có đợt thu này trong hệ thống.", "Check Tên Đợt Thu", JOptionPane.WARNING_MESSAGE);
             }
         }else{
             JOptionPane.showMessageDialog(rootPane, "Please Enter the required fields !", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -171,6 +173,8 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
         if(this.checkTenDotThu()){
             if(controller.checkTenDotThu(tenDotThu.getText())){
                 JOptionPane.showMessageDialog(rootPane, "OK", "Check Tên Đợt Thu", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Không có đợt thu này trong hệ thống.", "Check Tên Đợt Thu", JOptionPane.WARNING_MESSAGE);
             }
         }else{
             JOptionPane.showMessageDialog(rootPane, "Please Enter the required fields !", "Warning", JOptionPane.WARNING_MESSAGE);
