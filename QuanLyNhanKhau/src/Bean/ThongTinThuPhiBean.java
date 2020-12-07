@@ -25,8 +25,20 @@ public class ThongTinThuPhiBean {
     public ThongTinThuPhiBean() {
         this.thongTinThuPhiModel = new ThongTinThuPhiModel();
         this.hoKhauModel = new HoKhauModel();
+
     }
    
+
+    
+    
+    public HoKhauModel getHoKhauModel(){
+        return hoKhauModel;
+    }
+   
+    public void setHoKhauModel(HoKhauModel hoKhauModel){
+        this.hoKhauModel = hoKhauModel;
+    }
+
     public ThongTinThuPhiModel getThongTinThuPhiModel() {
         return thongTinThuPhiModel;
     }
