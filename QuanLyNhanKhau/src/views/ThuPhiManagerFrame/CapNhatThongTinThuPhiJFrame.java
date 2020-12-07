@@ -290,7 +290,11 @@ void close() {
             try{
                 if(this.controller.capNhatThongTin(this.thongTinThuPhiBean)){
                     JOptionPane.showMessageDialog(null, "Thêm thành công!!");
-                    close();
+                    if (JOptionPane.showConfirmDialog(null, "Bạn có muốn nhập tiếp??", "Cập nhật!!", JOptionPane.YES_NO_OPTION) == 0) {
+                        close();
+                        new CapNhatThongTinThuPhiJFrame(this.parentFrame).setVisible(true);
+                    }   else
+                    close(); 
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -339,8 +343,6 @@ void close() {
             return true;
     }
     
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CheckIDDotThu;
     private javax.swing.JButton CheckIDHoKhau;

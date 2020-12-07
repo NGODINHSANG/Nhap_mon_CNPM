@@ -26,7 +26,6 @@ public class ThongKeChiTietJFrame extends javax.swing.JFrame {
     
     public ThongKeChiTietJFrame() {
        initComponents();
-    
     }
     
     public ThongKeChiTietJFrame(JFrame parentFrame){
@@ -48,13 +47,7 @@ public class ThongKeChiTietJFrame extends javax.swing.JFrame {
         });
     
     }
-    public static void main(String[] args) {
-                java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ThongKeChiTietJFrame().setVisible(true);
-            }
-        });
-    }
+  
     
     void close(){
         this.parentFrame.setEnabled(true);
@@ -239,7 +232,9 @@ public class ThongKeChiTietJFrame extends javax.swing.JFrame {
      * @param args the command line arguments
      */
    
-
+public static void main (String args[]){
+    new ThongKeChiTietJFrame().setVisible(true);
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton acceptBtn;
     private javax.swing.JLabel availableIcon;

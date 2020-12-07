@@ -7,6 +7,7 @@ package utility;
 import Bean.DotThuBean;
 import Bean.ThongTinThuPhiBean;
 import java.util.List;
+import java.util.function.Consumer;
 import javax.swing.table.DefaultTableModel;
 import models.DotThuModel;
 import models.ThongTinThuPhiModel;
@@ -31,13 +32,14 @@ public class TableModelThuPhi {
         dtm.setColumnIdentifiers(listColumn);
         Object[] obj;
         obj = new Object[columns];
-        listItem.forEach((DotThuModel item) -> {
-            obj[0] = item.getTenDotThu();
-            obj[1] = item.getLoaiPhiThu();
-            obj[2] = item.getNgayBatDauThu().toString();
-            obj[3] = item.getNgayKetThucThu().toString();
-            obj[4] = item.getSoTienTrenMotNhanKhau();
-            dtm.addRow(obj);
+        listItem.forEach((DotThuModel item)-> {
+                obj[0] = item.getTenDotThu();
+                obj[1] = item.getLoaiPhiThu();
+                obj[2] = item.getNgayBatDauThu().toString();
+                obj[3] = item.getNgayKetThucThu().toString();
+                obj[4] = item.getSoTienTrenMotNhanKhau();
+                dtm.addRow(obj);
+            
         });
         return dtm;
     }
