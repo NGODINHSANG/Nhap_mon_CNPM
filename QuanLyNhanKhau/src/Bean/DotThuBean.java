@@ -73,7 +73,7 @@ public class DotThuBean {
                     + "<td>"
                     + thongTinThuPhi.getThongTinThuPhiModel().getNgayThu().toString()
                     + "</td>" 
-                    +"<tr>";          
+                    +"</tr>";          
         }
         res +=  "</table>"
                 + "</div></html>";
