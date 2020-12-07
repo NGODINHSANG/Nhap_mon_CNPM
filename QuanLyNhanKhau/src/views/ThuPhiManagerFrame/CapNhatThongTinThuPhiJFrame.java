@@ -289,8 +289,11 @@ void close() {
             temp.setNgayThu(ngayThu.getDate());
             try{
                 if(this.controller.capNhatThongTin(this.thongTinThuPhiBean)){
-                    JOptionPane.showMessageDialog(null, "Thêm thành công!!");
-                    close();
+                    /*JOptionPane.showMessageDialog(null, "Thêm thành công!!");
+                    close();*/
+                    if (JOptionPane.showConfirmDialog(null, "Bạn có muốn nhập tiếp ??", "Cập nhật!!", JOptionPane.YES_NO_OPTION) == 0) {
+                    new CapNhatThongTinThuPhiJFrame().setVisible(true);
+                }else close();
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -339,7 +342,9 @@ void close() {
             return true;
     }
     
-
+public static void main (String args[]){
+    new CapNhatThongTinThuPhiJFrame().setVisible(true);
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CheckIDDotThu;
