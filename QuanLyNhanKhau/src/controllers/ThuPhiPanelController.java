@@ -29,7 +29,7 @@ import views.infoViews.InfoJframe;
 
 /**
  *
- * @author Ngo Viet Cuong
+ * @author Ngô Việt Cường
  */
 public class ThuPhiPanelController {
     private List<DotThuBean> listDotThuBeans;
@@ -110,7 +110,8 @@ public class ThuPhiPanelController {
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() > 1) {
                     DotThuBean temp = listDotThuBeans.get(table.getSelectedRow());
-                    InfoJframe infoJframe = new InfoJframe(temp.toString(), parentJFrame);
+                    DotThuBean info = thuPhiService.getDotThu(temp.getDotThuModel().getID());
+                    InfoJframe infoJframe = new InfoJframe(info.toString(), parentJFrame);
                     infoJframe.setLocationRelativeTo(null);
                     infoJframe.setVisible(true);
                 }
@@ -155,4 +156,5 @@ public class ThuPhiPanelController {
     public void setTableJpn(JPanel tableJpn) {
         this.jpnView = tableJpn;
     }
+    
 }
