@@ -342,9 +342,6 @@ void close() {
             return true;
     }
     
-public static void main (String args[]){
-    new CapNhatThongTinThuPhiJFrame().setVisible(true);
-}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CheckIDDotThu;
