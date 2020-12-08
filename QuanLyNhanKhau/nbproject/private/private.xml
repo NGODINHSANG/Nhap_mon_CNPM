@@ -5,6 +5,8 @@
         <group>
             <file>file:/F:/NhapmonCNPM/Nhap_mon_CNPM/QuanLyNhanKhau/src/controllers/ThuPhiManagerController/XoaController.java</file>
             <file>file:/F:/NhapmonCNPM/Nhap_mon_CNPM/QuanLyNhanKhau/src/views/ThuPhiManagerFrame/XoaDotThuJFrame.java</file>
+            <file>file:/F:/NhapmonCNPM/Nhap_mon_CNPM/QuanLyNhanKhau/src/views/ThuPhiManagerFrame/CapNhatThongTinThuPhiJFrame.java</file>
+            <file>file:/F:/NhapmonCNPM/Nhap_mon_CNPM/QuanLyNhanKhau/src/controllers/ThuPhiManagerController/CapNhatController.java</file>
         </group>
     </open-files>
 </project-private>

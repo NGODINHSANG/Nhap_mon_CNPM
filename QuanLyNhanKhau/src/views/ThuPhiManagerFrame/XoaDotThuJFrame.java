@@ -5,6 +5,7 @@
  */
 package views.ThuPhiManagerFrame;
 
+import Bean.DotThuBean;
 import controllers.ThuPhiManagerController.XoaController;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -19,6 +20,7 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
     //Declare
     private JFrame parentFrame;
     private XoaController controller;
+    private DotThuBean dotThuBean;
     /**
      * Creates new form XoaDotThuJFrame
      */
@@ -32,6 +34,7 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
         initComponents();
         controller = new XoaController();
         setTitle("XÓA ĐỢT THU PHÍ");
+        this.dotThuBean = new DotThuBean();
         this.parentFrame.setEnabled(false);
         // confirm de thuc hien dong
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -160,6 +163,9 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
         if(this.checkTenDotThu()){
             if(controller.checkTenDotThu(tenDotThu.getText())){
                 JOptionPane.showMessageDialog(rootPane, "OK ! Có đợt thu này trong hệ thống.", "Check Tên Đợt Thu", JOptionPane.INFORMATION_MESSAGE);
+                if(JOptionPane.showConfirmDialog(rootPane, "Bạn muốn xóa đợt thu này trong hệ thống", "Xác nhận xóa đợt thu", JOptionPane.WARNING_MESSAGE) == 1){
+                    controller.xoaDotThu(dotThuBean);
+                };
             }else{
                 JOptionPane.showMessageDialog(rootPane, "Không có đợt thu này trong hệ thống.", "Check Tên Đợt Thu", JOptionPane.WARNING_MESSAGE);
             }
@@ -172,7 +178,7 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(this.checkTenDotThu()){
             if(controller.checkTenDotThu(tenDotThu.getText())){
-                JOptionPane.showMessageDialog(rootPane, "OK", "Check Tên Đợt Thu", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(rootPane, "OK ! Có đợt thu này trong hệ thống.", "Check Tên Đợt Thu", JOptionPane.INFORMATION_MESSAGE);
             }else{
                 JOptionPane.showMessageDialog(rootPane, "Không có đợt thu này trong hệ thống.", "Check Tên Đợt Thu", JOptionPane.WARNING_MESSAGE);
             }

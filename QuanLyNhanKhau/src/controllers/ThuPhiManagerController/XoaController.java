@@ -37,7 +37,6 @@ public class XoaController {
             JOptionPane.showMessageDialog(null, "Có lỗi xảy ra! vui lòng kiểm tra lại.", "Warning!!", JOptionPane.WARNING_MESSAGE);
             return false;
         }
-
     }
     
     public boolean checkTenDotThu (String tenDotThu){
