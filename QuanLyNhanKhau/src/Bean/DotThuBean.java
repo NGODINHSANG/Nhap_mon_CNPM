@@ -15,19 +15,16 @@ import models.ThongTinThuPhiModel;
  */
 public class DotThuBean {
     private DotThuModel dotThuModel;
-    private List<HoKhauModel> hoKhauModel;
-    private List<ThongTinThuPhiModel> thongTinThuPhiModel;
+    private List<ThongTinThuPhiBean> listThongTinThuPhiBeans;
     
-    public DotThuBean(DotThuModel dotThuModel, List<HoKhauModel> hoKhauModel, List<ThongTinThuPhiModel> thongTinThuPhiModel){
+    public DotThuBean(DotThuModel dotThuModel, List<ThongTinThuPhiBean> listThongTinThuPhiBeans){
         this.dotThuModel = dotThuModel;
-        this.hoKhauModel = hoKhauModel;
-        this.thongTinThuPhiModel = thongTinThuPhiModel;
+        this.listThongTinThuPhiBeans = listThongTinThuPhiBeans;
     }
     
     public DotThuBean(){
         this.dotThuModel = new DotThuModel();
-        this.hoKhauModel = new ArrayList<>();
-        this.thongTinThuPhiModel = new ArrayList<>();
+        this.listThongTinThuPhiBeans = new ArrayList<>();
     }
     
     public DotThuModel getDotThuModel(){
@@ -38,25 +35,48 @@ public class DotThuBean {
         this.dotThuModel = dotThuModel;
     }
     
-    public List<HoKhauModel> getHoKhauModel(){
-        return hoKhauModel;
+    public List<ThongTinThuPhiBean> getThongTinThuPhiModel(){
+        return listThongTinThuPhiBeans;
     }
     
-    public void setHoKhauModel(List<HoKhauModel> hoKhauModel){
-        this.hoKhauModel = hoKhauModel;
-    }
-    
-    public List<ThongTinThuPhiModel> getThongTinThuPhiModel(){
-        return thongTinThuPhiModel;
-    }
-    
-    public void setThongTinThuPhiModel(List<ThongTinThuPhiModel> thongTinThuPhiModel){
-        this.thongTinThuPhiModel = thongTinThuPhiModel;
+    public void setThongTinThuPhiBean(List<ThongTinThuPhiBean> listThongTinThuPhiBeans){
+        this.listThongTinThuPhiBeans = listThongTinThuPhiBeans;
     }
     
     @Override
     public String toString(){
-        String res = "";
+        String res = "<html><style>p {padding: 5px; margin-left: 20px} table, th, td {border: 1px solid black; border-collapse: collapse;} table {width: 500px}</style> <div>"
+                + "<h3>Thông tin đợt thu:"
+                + "<p>Tên đợt thu : <b>" + dotThuModel.getTenDotThu() +"</p>"
+                + "<p>Loại phí thu: <b>" + dotThuModel.getLoaiPhiThu() + "</p>"
+                + "<p>Ngày bắt đầu thu: <b>" + dotThuModel.getNgayBatDauThu().toString() + "</p>"
+                + "<p>Ngày kết thúc thu: <b>" + dotThuModel.getNgayKetThucThu().toString() + "</p>"
+                + "<p>Số tiền trên một nhân khẩu: <b>" + dotThuModel.getSoTienTrenMotNhanKhau() + "</p>"
+                + "<p>Ngày tạo : <b>" + dotThuModel.getNgayTao() + "</p>"
+                + "<h4>Các hộ: "
+                + "<tr>"
+                + "<th>ID hộ khẩu</th>"
+                + "<th>Số nhân khẩu</th>"
+                + "<th>Tổng số tiền</th>"
+                + "<th>Ngày thu</th>";;
+        for(ThongTinThuPhiBean thongTinThuPhi: listThongTinThuPhiBeans){
+            res += "<tr>"
+                    + "<td>"
+                    + thongTinThuPhi.getHoKhauModel().getMaHoKhau()
+                    + "</td>"
+                    + "<td>"
+                    + thongTinThuPhi.getThongTinThuPhiModel().getSoNhanKhau()
+                    + "</td>"
+                    + "<td>"        
+                    + thongTinThuPhi.getThongTinThuPhiModel().getTongSoTien()
+                    + "</td>"
+                    + "<td>"
+                    + thongTinThuPhi.getThongTinThuPhiModel().getNgayThu().toString()
+                    + "</td>" 
+                    +"<tr>";          
+        }
+        res +=  "</table>"
+                + "</div></html>";
         return res;
     }
 }

@@ -26,7 +26,6 @@ public class ThongKeChiTietJFrame extends javax.swing.JFrame {
     
     public ThongKeChiTietJFrame() {
        initComponents();
-    
     }
     
     public ThongKeChiTietJFrame(JFrame parentFrame){
@@ -48,13 +47,7 @@ public class ThongKeChiTietJFrame extends javax.swing.JFrame {
         });
     
     }
-    public static void main(String[] args) {
-                java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ThongKeChiTietJFrame().setVisible(true);
-            }
-        });
-    }
+  
     
     void close(){
         this.parentFrame.setEnabled(true);
@@ -226,6 +219,9 @@ public class ThongKeChiTietJFrame extends javax.swing.JFrame {
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         //  close();
+        if (JOptionPane.showConfirmDialog(null, "Are you sure to close this??","Confirm",JOptionPane.YES_NO_OPTION) == 0) {
+            close();
+        }
     }//GEN-LAST:event_cancelBtnActionPerformed
 
     private void acceptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBtnActionPerformed
@@ -236,7 +232,9 @@ public class ThongKeChiTietJFrame extends javax.swing.JFrame {
      * @param args the command line arguments
      */
    
-
+public static void main (String args[]){
+    new ThongKeChiTietJFrame().setVisible(true);
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton acceptBtn;
     private javax.swing.JLabel availableIcon;

@@ -9,6 +9,9 @@ import Bean.DotThuBean;
 import controllers.ThuPhiManagerController.XoaController;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -164,7 +167,13 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
             if(controller.checkTenDotThu(tenDotThu.getText())){
                 JOptionPane.showMessageDialog(rootPane, "OK ! Có đợt thu này trong hệ thống.", "Check Tên Đợt Thu", JOptionPane.INFORMATION_MESSAGE);
                 if(JOptionPane.showConfirmDialog(rootPane, "Bạn muốn xóa đợt thu này trong hệ thống", "Xác nhận xóa đợt thu", JOptionPane.WARNING_MESSAGE) == 1){
-                    controller.xoaDotThu(dotThuBean);
+                    try {
+                        controller.xoaDotThu(dotThuBean);
+                    } catch (Exception e) {
+                       System.out.println(e.getMessage());
+                       JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
+      
+                    }
                 };
             }else{
                 JOptionPane.showMessageDialog(rootPane, "Không có đợt thu này trong hệ thống.", "Check Tên Đợt Thu", JOptionPane.WARNING_MESSAGE);
