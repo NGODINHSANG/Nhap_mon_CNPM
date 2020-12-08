@@ -136,7 +136,7 @@ public class ThuPhiPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ThemMoiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThemMoiBtnActionPerformed
-        ThemDotThuMoiJFrame themDotThuMoiJFrame = new ThemDotThuMoiJFrame();
+        ThemDotThuMoiJFrame themDotThuMoiJFrame = new ThemDotThuMoiJFrame(this.parentJFrame);
         themDotThuMoiJFrame.setLocationRelativeTo(null);
         themDotThuMoiJFrame.setResizable(false);
         themDotThuMoiJFrame.setVisible(true);
@@ -150,7 +150,7 @@ public class ThuPhiPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_XoaBtnActionPerformed
 
     private void ChiTietBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChiTietBtnActionPerformed
-        ThongKeChiTietJFrame thongKeChiTietJFrame = new ThongKeChiTietJFrame();
+        ThongKeChiTietJFrame thongKeChiTietJFrame = new ThongKeChiTietJFrame(this.parentJFrame);
         thongKeChiTietJFrame.setLocationRelativeTo(null);
         thongKeChiTietJFrame.setResizable(false);
         thongKeChiTietJFrame.setVisible(true);
