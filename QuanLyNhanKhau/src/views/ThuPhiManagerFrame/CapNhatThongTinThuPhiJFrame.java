@@ -295,9 +295,7 @@ void close() {
                     JOptionPane.showMessageDialog(null, "Thêm thành công!!");
                     if (JOptionPane.showConfirmDialog(null, "Bạn có muốn nhập tiếp??", "Cập nhật!!", JOptionPane.YES_NO_OPTION) == 0) {
                         close();
-                        
-                        new CapNhatThongTinThuPhiJFrame(this.parentFrame);//.setLocationRelativeTo(null);
-                        
+                         new CapNhatThongTinThuPhiJFrame(this.parentFrame);//.setLocationRelativeTo(null);
                     }   else
                     close(); 
                 }
