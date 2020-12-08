@@ -1,27 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/document/Intro_to_Software_Engineering/Project_I/Project_ver1/Nhap_mon_CNPM/QuanLyNhanKhau/src/utility/TableModelThuPhi.java</file>
-            <file>file:/E:/document/Intro_to_Software_Engineering/Project_I/Project_ver1/Nhap_mon_CNPM/QuanLyNhanKhau/src/views/NhanKhauManagerFrame/DangKyTamTruJFrame.java</file>
-            <file>file:/E:/document/Intro_to_Software_Engineering/Project_I/Project_ver1/Nhap_mon_CNPM/QuanLyNhanKhau/src/views/ThuPhiManagerFrame/ThemDotThuMoiJFrame.java</file>
-            <file>file:/E:/document/Intro_to_Software_Engineering/Project_I/Project_ver1/Nhap_mon_CNPM/QuanLyNhanKhau/src/Bean/DotThuBean.java</file>
-            <file>file:/E:/document/Intro_to_Software_Engineering/Project_I/Project_ver1/Nhap_mon_CNPM/QuanLyNhanKhau/src/controllers/ThuPhiManagerController/CapNhatController.java</file>
-            <file>file:/E:/document/Intro_to_Software_Engineering/Project_I/Project_ver1/Nhap_mon_CNPM/QuanLyNhanKhau/src/utility/TableModelHoKhau.java</file>
-            <file>file:/E:/document/Intro_to_Software_Engineering/Project_I/Project_ver1/Nhap_mon_CNPM/QuanLyNhanKhau/src/quanlynhankhau/QuanLyNhanKhau.java</file>
-            <file>file:/E:/document/Intro_to_Software_Engineering/Project_I/Project_ver1/Nhap_mon_CNPM/QuanLyNhanKhau/src/controllers/HoKhauPanelController.java</file>
-            <file>file:/E:/document/Intro_to_Software_Engineering/Project_I/Project_ver1/Nhap_mon_CNPM/QuanLyNhanKhau/src/Bean/ThongTinThuPhiBean.java</file>
-            <file>file:/E:/document/Intro_to_Software_Engineering/Project_I/Project_ver1/Nhap_mon_CNPM/QuanLyNhanKhau/src/Bean/HoKhauBean.java</file>
-            <file>file:/E:/document/Intro_to_Software_Engineering/Project_I/Project_ver1/Nhap_mon_CNPM/QuanLyNhanKhau/src/controllers/ThuPhiPanelController.java</file>
-            <file>file:/E:/document/Intro_to_Software_Engineering/Project_I/Project_ver1/Nhap_mon_CNPM/QuanLyNhanKhau/src/views/ThuPhiPanel.java</file>
-            <file>file:/E:/document/Intro_to_Software_Engineering/Project_I/Project_ver1/Nhap_mon_CNPM/QuanLyNhanKhau/src/views/ThuPhiManagerFrame/CapNhatThongTinThuPhiJFrame.java</file>
-            <file>file:/E:/document/Intro_to_Software_Engineering/Project_I/Project_ver1/Nhap_mon_CNPM/QuanLyNhanKhau/src/controllers/NhanKhauManagerPanelController.java</file>
-            <file>file:/E:/document/Intro_to_Software_Engineering/Project_I/Project_ver1/Nhap_mon_CNPM/QuanLyNhanKhau/src/views/NhanKhauManagePanel.java</file>
-            <file>file:/E:/document/Intro_to_Software_Engineering/Project_I/Project_ver1/Nhap_mon_CNPM/QuanLyNhanKhau/src/models/DotThuModel.java</file>
-            <file>file:/E:/document/Intro_to_Software_Engineering/Project_I/Project_ver1/Nhap_mon_CNPM/QuanLyNhanKhau/src/controllers/NhanKhauManagerController/AddNewController.java</file>
-            <file>file:/E:/document/Intro_to_Software_Engineering/Project_I/Project_ver1/Nhap_mon_CNPM/QuanLyNhanKhau/src/controllers/NhanKhauManagerController/DangKyTamTruController.java</file>
-            <file>file:/E:/document/Intro_to_Software_Engineering/Project_I/Project_ver1/Nhap_mon_CNPM/QuanLyNhanKhau/src/controllers/ThuPhiManagerController/ThemMoiController.java</file>
+            <file>file:/F:/NhapmonCNPM/Nhap_mon_CNPM/QuanLyNhanKhau/src/controllers/ThuPhiManagerController/CapNhatController.java</file>
+            <file>file:/F:/NhapmonCNPM/Nhap_mon_CNPM/QuanLyNhanKhau/src/views/ThuPhiManagerFrame/CapNhatThongTinThuPhiJFrame.java</file>
+            <file>file:/F:/NhapmonCNPM/Nhap_mon_CNPM/QuanLyNhanKhau/src/views/ThuPhiManagerFrame/XoaDotThuJFrame.java</file>
+            <file>file:/F:/NhapmonCNPM/Nhap_mon_CNPM/QuanLyNhanKhau/src/controllers/ThuPhiManagerController/XoaController.java</file>
         </group>
     </open-files>
 </project-private>

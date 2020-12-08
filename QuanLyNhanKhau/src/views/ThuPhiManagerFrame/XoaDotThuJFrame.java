@@ -5,8 +5,13 @@
  */
 package views.ThuPhiManagerFrame;
 
+import Bean.DotThuBean;
+import controllers.ThuPhiManagerController.XoaController;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -17,12 +22,12 @@ import javax.swing.JOptionPane;
 public class XoaDotThuJFrame extends javax.swing.JFrame {
     //Declare
     private JFrame parentFrame;
-    
+    private XoaController controller;
+    private DotThuBean dotThuBean;
     /**
      * Creates new form XoaDotThuJFrame
      */
-    
-    
+
     public XoaDotThuJFrame() {
         initComponents();
     }
@@ -30,7 +35,9 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
     public XoaDotThuJFrame(JFrame parentFrame) {
         this.parentFrame = parentFrame;
         initComponents();
+        controller = new XoaController();
         setTitle("XÓA ĐỢT THU PHÍ");
+        this.dotThuBean = new DotThuBean();
         this.parentFrame.setEnabled(false);
         // confirm de thuc hien dong
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -139,7 +146,7 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    private boolean checkInform(){
+    private boolean checkTenDotThu(){
         return !tenDotThu.getText().trim().isEmpty();
     }
     
@@ -156,8 +163,21 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
 
     private void xacNhanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xacNhanBtnActionPerformed
         // TODO add your handling code here:
-        if(checkInform()){
-            
+        if(this.checkTenDotThu()){
+            if(controller.checkTenDotThu(tenDotThu.getText())){
+                JOptionPane.showMessageDialog(rootPane, "OK ! Có đợt thu này trong hệ thống.", "Check Tên Đợt Thu", JOptionPane.INFORMATION_MESSAGE);
+                if(JOptionPane.showConfirmDialog(rootPane, "Bạn muốn xóa đợt thu này trong hệ thống", "Xác nhận xóa đợt thu", JOptionPane.WARNING_MESSAGE) == 1){
+                    try {
+                        controller.xoaDotThu(dotThuBean);
+                    } catch (Exception e) {
+                       System.out.println(e.getMessage());
+                       JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
+      
+                    }
+                };
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Không có đợt thu này trong hệ thống.", "Check Tên Đợt Thu", JOptionPane.WARNING_MESSAGE);
+            }
         }else{
             JOptionPane.showMessageDialog(rootPane, "Please Enter the required fields !", "Warning", JOptionPane.WARNING_MESSAGE);
         }
@@ -165,8 +185,12 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
 
     private void checkBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBtnActionPerformed
         // TODO add your handling code here:
-        if(checkInform()){
-            
+        if(this.checkTenDotThu()){
+            if(controller.checkTenDotThu(tenDotThu.getText())){
+                JOptionPane.showMessageDialog(rootPane, "OK ! Có đợt thu này trong hệ thống.", "Check Tên Đợt Thu", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Không có đợt thu này trong hệ thống.", "Check Tên Đợt Thu", JOptionPane.WARNING_MESSAGE);
+            }
         }else{
             JOptionPane.showMessageDialog(rootPane, "Please Enter the required fields !", "Warning", JOptionPane.WARNING_MESSAGE);
         }
