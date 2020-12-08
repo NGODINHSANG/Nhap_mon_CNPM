@@ -37,6 +37,9 @@ public class CapNhatThongTinThuPhiJFrame extends javax.swing.JFrame {
         controller = new CapNhatController();
         this.thongTinThuPhiBean = new ThongTinThuPhiBean();
         initComponents();
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setTitle("Cập nhật thông tin thu phí");
         parentFrame.setEnabled(false);
@@ -292,7 +295,7 @@ void close() {
                     JOptionPane.showMessageDialog(null, "Thêm thành công!!");
                     if (JOptionPane.showConfirmDialog(null, "Bạn có muốn nhập tiếp??", "Cập nhật!!", JOptionPane.YES_NO_OPTION) == 0) {
                         close();
-                        new CapNhatThongTinThuPhiJFrame(this.parentFrame).setVisible(true);
+                         new CapNhatThongTinThuPhiJFrame(this.parentFrame);//.setLocationRelativeTo(null);
                     }   else
                     close(); 
                 }
@@ -306,9 +309,11 @@ void close() {
     private void CheckIDDotThuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckIDDotThuActionPerformed
         // TODO add your handling code here:
         if(this.checkIDDotThu()){
-            if(controller.checkIDDotThu(Integer.parseInt(idDotThu.getText())))
-            JOptionPane.showMessageDialog(rootPane, "OK","Check ID", JOptionPane.INFORMATION_MESSAGE);
+            if(controller.checkIDDotThu(Integer.parseInt(idDotThu.getText()))){
+            JOptionPane.showMessageDialog(rootPane, "ID đã có","Check ID", JOptionPane.INFORMATION_MESSAGE);
             this.availableDotThu.setEnabled(true);
+            }
+            else JOptionPane.showMessageDialog(rootPane, "ID chưa có","Check ID", JOptionPane.INFORMATION_MESSAGE);
         }
         else    JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập hết các trường bắt buộc", "Warning", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_CheckIDDotThuActionPerformed
@@ -316,9 +321,12 @@ void close() {
     private void CheckIDHoKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckIDHoKhauActionPerformed
         // TODO add your handling code here:
         if(this.checkIDHoKhau()){
-            if(controller.checkIDHoKhau(Integer.parseInt(idHoKhau.getText())))
-            JOptionPane.showMessageDialog(rootPane, "OK","Check ID", JOptionPane.INFORMATION_MESSAGE);
-            this.availableHoKhau.setEnabled(true);
+            if(controller.checkIDHoKhau(Integer.parseInt(idHoKhau.getText()))){
+            JOptionPane.showMessageDialog(rootPane, "ID đã có","Check ID", JOptionPane.INFORMATION_MESSAGE);
+            this.availableDotThu.setEnabled(true);
+            }
+            else JOptionPane.showMessageDialog(rootPane, "ID chưa có","Check ID", JOptionPane.INFORMATION_MESSAGE);
+        
         }
         else    JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập hết các trường bắt buộc", "Warning", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_CheckIDHoKhauActionPerformed
