@@ -42,7 +42,7 @@ public class DotThuBean {
     public void setThongTinThuPhiBean(List<ThongTinThuPhiBean> listThongTinThuPhiBeans){
         this.listThongTinThuPhiBeans = listThongTinThuPhiBeans;
     }
-    
+    /*
     @Override
     public String toString(){
         String res = "<html><style>p {padding: 5px; margin-left: 20px} table, th, td {border: 1px solid black; border-collapse: collapse;} table {width: 500px}</style> <div>"
@@ -78,5 +78,5 @@ public class DotThuBean {
         res +=  "</table>"
                 + "</div></html>";
         return res;
-    }
+    }*/
 }
