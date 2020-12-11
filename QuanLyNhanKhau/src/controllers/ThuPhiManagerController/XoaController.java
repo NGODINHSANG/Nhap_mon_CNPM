@@ -23,10 +23,10 @@ public class XoaController {
         DotThuModel dotThuModel = dotThuBean.getDotThuModel();
         try{
             Connection connection = MysqlConnection.getMysqlConnection();
-            String query = "DELETE FROM thong_tin_thu_phi WHERE idDotThu.thong_tin_thu_phi = idDotThu.dot_thu AND tenDotThu = ?;"
-                         + "DELETE FROM dot_thu WHERE tenDotThu = ?";
+            String query = "DELETE FROM thong_tin_thu_phi WHERE maDotThu = ? ;"
+                         + "DELETE FROM dot_thu WHERE maDotThu = ?;";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, dotThuModel.getTenDotThu());
+            preparedStatement.setString(1, dotThuModel.getMaDotThu());
             preparedStatement.execute();
             preparedStatement.close();
             connection.close();
@@ -39,12 +39,12 @@ public class XoaController {
         }
     }
     
-    public boolean checkTenDotThu (String tenDotThu){
+    public boolean checkMaDotThu (String maDotThu){
           try{
             Connection connection = MysqlConnection.getMysqlConnection();
-            String query = "SELECT * FROM dot_thu WHERE tenDotThu = ?";
+            String query = "SELECT * FROM dot_thu WHERE maDotThu = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1,tenDotThu);
+            preparedStatement.setString(1,maDotThu);
             ResultSet rs = preparedStatement.executeQuery();
             if(rs.next()){
                 return true;

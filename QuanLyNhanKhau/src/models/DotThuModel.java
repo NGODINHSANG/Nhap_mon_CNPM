@@ -11,7 +11,9 @@ import java.util.Date;
  * @author SangND
  */
 public class DotThuModel {
+
     private int idDotThu;
+
     private String maDotThu;
     private String tenDotThu;
     private String loaiPhiThu;
@@ -27,9 +29,11 @@ public class DotThuModel {
         return idDotThu;
     }
 
+
     public void setIdDotThu(int idDotThu) {
         this.idDotThu = idDotThu;
     }
+
 
     public String getMaDotThu() {
         return maDotThu;
@@ -39,7 +43,9 @@ public class DotThuModel {
         this.maDotThu = maDotThu;
     }
 
+
     public String getTenDotThu() {
+
         return tenDotThu;
     }
 
