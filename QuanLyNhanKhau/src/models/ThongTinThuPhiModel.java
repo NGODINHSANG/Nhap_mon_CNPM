@@ -12,36 +12,42 @@ import java.util.Date;
  * @author VuDinhHieu
  */
 public class ThongTinThuPhiModel {
-    private int idDotThu;
-    private int idHoKhau;
-    private int soNhanKhau;
+    private String maDotThu;
+    private String maHoKhau;
+    //private int soNhanKhau;
     private int tongSoTien;
-    private Date ngayTao;
+
+    public ThongTinThuPhiModel() {
+    }
+
+    public ThongTinThuPhiModel(String maDotThu, String maHoKhau, int tongSoTien, Date ngayThu) {
+        this.maDotThu = maDotThu;
+        this.maHoKhau = maHoKhau;
+        this.tongSoTien = tongSoTien;
+        this.ngayThu = ngayThu;
+    }
+
+    
+    
+    public String getMaDotThu() {
+        return maDotThu;
+    }
+
+    public void setMaDotThu(String maDotThu) {
+        this.maDotThu = maDotThu;
+    }
+
+    public String getMaHoKhau() {
+        return maHoKhau;
+    }
+
+    public void setMaHoKhau(String maHoKhau) {
+        this.maHoKhau = maHoKhau;
+    }
+    //private Date ngayTao;
     private Date ngayThu;
 
-    public int getIDDotThu() {
-        return idDotThu;
-    }
 
-    public void setIDDotThu(int idDotThu) {
-        this.idDotThu = idDotThu;
-    }
-
-    public int getIDHoKhau() {
-        return idHoKhau;
-    }
-
-    public void setIDHoKhau(int idHoKhau) {
-        this.idHoKhau = idHoKhau;
-    }
-
-    public int getSoNhanKhau() {
-        return soNhanKhau;
-    }
-
-    public void setSoNhanKhau(int soNhanKhau) {
-        this.soNhanKhau = soNhanKhau;
-    }
 
     public int getTongSoTien() {
         return tongSoTien;
@@ -59,11 +65,4 @@ public class ThongTinThuPhiModel {
         this.ngayThu = ngayThu;
     }
     
-    public void setNgayTao(Date ngayTao){
-        this.ngayTao = ngayTao;
-    }
-    
-    public Date getNgayTao(){
-        return ngayTao;
-    }
 }
