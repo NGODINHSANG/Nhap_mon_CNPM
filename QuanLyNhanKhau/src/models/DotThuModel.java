@@ -12,6 +12,7 @@ import java.util.Date;
  */
 public class DotThuModel {
     private int ID;
+    private String maDotThu;
     private String tenDotThu;
     private String loaiPhiThu;
     private Date ngayBatDauThu;
@@ -27,6 +28,13 @@ public class DotThuModel {
         this.ID = ID;
     }
     
+    public String getMaDotThu() {
+        return maDotThu;
+    }
+
+    public void setMaDotThu(String maDotThu) {
+        this.maDotThu = maDotThu;
+    }
     public String getTenDotThu(){
         return tenDotThu;
     }
