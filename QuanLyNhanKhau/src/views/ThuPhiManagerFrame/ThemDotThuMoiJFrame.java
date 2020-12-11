@@ -298,7 +298,7 @@ public class ThemDotThuMoiJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         DotThuModel temp = this.dotThuBean.getDotThuModel();
             temp.setTenDotThu(tenDotThu.getText());
-            temp.setIdDotThu(Integer.parseInt(idDotThu.getText()));
+            temp.setID(Integer.parseInt(idDotThu.getText()));
             temp.setMaDotThu(maDotThu.getText());
             temp.setNgayBatDauThu(ngayBatDauThu.getDate());
             temp.setNgayKetThucThu(ngayKetThucThu.getDate());
