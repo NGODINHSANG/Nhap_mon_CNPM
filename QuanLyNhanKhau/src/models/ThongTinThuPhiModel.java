@@ -14,21 +14,10 @@ import java.util.Date;
 public class ThongTinThuPhiModel {
     private String maDotThu;
     private String maHoKhau;
-    //private int soNhanKhau;
+    private int soNhanKhau;
     private int tongSoTien;
+    private Date ngayThu;
 
-    public ThongTinThuPhiModel() {
-    }
-
-    public ThongTinThuPhiModel(String maDotThu, String maHoKhau, int tongSoTien, Date ngayThu) {
-        this.maDotThu = maDotThu;
-        this.maHoKhau = maHoKhau;
-        this.tongSoTien = tongSoTien;
-        this.ngayThu = ngayThu;
-    }
-
-    
-    
     public String getMaDotThu() {
         return maDotThu;
     }
@@ -44,10 +33,14 @@ public class ThongTinThuPhiModel {
     public void setMaHoKhau(String maHoKhau) {
         this.maHoKhau = maHoKhau;
     }
-    //private Date ngayTao;
-    private Date ngayThu;
 
+    public int getSoNhanKhau() {
+        return soNhanKhau;
+    }
 
+    public void setSoNhanKhau(int soNhanKhau) {
+        this.soNhanKhau = soNhanKhau;
+    }
 
     public int getTongSoTien() {
         return tongSoTien;

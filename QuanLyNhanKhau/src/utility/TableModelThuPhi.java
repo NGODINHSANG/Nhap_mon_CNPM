@@ -26,18 +26,19 @@ public class TableModelThuPhi {
             }
             @Override
             public Class<?> getColumnClass(int columnIndex) {
-                return columnIndex == 5 ? Boolean.class : String.class;
+                return columnIndex == 6 ? Boolean.class : String.class;
             }
         };
         dtm.setColumnIdentifiers(listColumn);
         Object[] obj;
         obj = new Object[columns];
         listItem.forEach((DotThuModel item)-> {
-                obj[0] = item.getTenDotThu();
-                obj[1] = item.getLoaiPhiThu();
-                obj[2] = item.getNgayBatDauThu().toString();
-                obj[3] = item.getNgayKetThucThu().toString();
-                obj[4] = item.getSoTienTrenMotNhanKhau();
+                obj[0] = item.getMaDotThu();
+                obj[1] = item.getTenDotThu();
+                obj[2] = item.getLoaiPhiThu();
+                obj[3] = item.getNgayBatDauThu().toString();
+                obj[4] = item.getNgayKetThucThu().toString();
+                obj[5] = item.getSoTienTrenMotNhanKhau();
                 dtm.addRow(obj);
             
         });
@@ -45,7 +46,7 @@ public class TableModelThuPhi {
     }
     
     //bang thong tin dot thu 
-    public DefaultTableModel setTableDotThu(List<ThongTinThuPhiBean> thongTin,String[] listColumn){
+    public DefaultTableModel setTableDotThu(List<ThongTinThuPhiModel> thongTin,String[] listColumn){
         final int columns = listColumn.length;
         DefaultTableModel dtm = new DefaultTableModel()  {
             @Override
@@ -60,11 +61,11 @@ public class TableModelThuPhi {
         dtm.setColumnIdentifiers(listColumn);
         Object[] obj;
         obj = new Object[columns];
-        thongTin.forEach((ThongTinThuPhiBean item) -> {
-            obj[0] = item.getHoKhauModel().getMaHoKhau();
-            obj[1] = item.getThongTinThuPhiModel().getSoNhanKhau();
-            obj[2] = item.getThongTinThuPhiModel().getTongSoTien();
-            obj[3] = item.getThongTinThuPhiModel().getNgayThu().toString();
+        thongTin.forEach((ThongTinThuPhiModel item) -> {
+            obj[0] = item.getMaHoKhau();
+            obj[1] = item.getSoNhanKhau();
+            obj[2] = item.getTongSoTien();
+            obj[3] = item.getNgayThu().toString();
             dtm.addRow(obj);
         });
         return dtm;

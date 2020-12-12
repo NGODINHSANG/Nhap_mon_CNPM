@@ -11,9 +11,7 @@ import java.util.Date;
  * @author SangND
  */
 public class DotThuModel {
-
     private int idDotThu;
-
     private String maDotThu;
     private String tenDotThu;
     private String loaiPhiThu;
@@ -21,79 +19,70 @@ public class DotThuModel {
     private Date ngayKetThucThu;
     private int soTienTrenMotNhanKhau;
     private Date ngayTao;
-
-    public DotThuModel() {
-    }
-
-    public int getIdDotThu() {
+    
+    public int getIDDotThu(){
         return idDotThu;
     }
-
-
-    public void setIdDotThu(int idDotThu) {
+    
+    public void setIDDotThu(int ID){
         this.idDotThu = idDotThu;
     }
-
-
-    public String getMaDotThu() {
+    
+    public String getMaDotThu(){
         return maDotThu;
     }
-
-    public void setMaDotThu(String maDotThu) {
+    
+    public void setMaDotThu(String maDotThu){
         this.maDotThu = maDotThu;
     }
-
-
-    public String getTenDotThu() {
-
+    
+    public String getTenDotThu(){
         return tenDotThu;
     }
-
-    public void setTenDotThu(String tenDotThu) {
+    
+    public void setTenDotThu(String tenDotThu){
         this.tenDotThu = tenDotThu;
     }
-
-    public String getLoaiPhiThu() {
+    
+    public String getLoaiPhiThu(){
         return loaiPhiThu;
     }
-
-    public void setLoaiPhiThu(String loaiPhiThu) {
+    
+    public void setLoaiPhiThu(String loaiPhiThu){
         this.loaiPhiThu = loaiPhiThu;
     }
-
-    public Date getNgayBatDauThu() {
+    
+    public Date getNgayBatDauThu(){
         return ngayBatDauThu;
     }
-
-    public void setNgayBatDauThu(Date ngayBatDauThu) {
+    
+    public void setNgayBatDauThu(Date ngayBatDauThu){
         this.ngayBatDauThu = ngayBatDauThu;
     }
-
-    public Date getNgayKetThucThu() {
+    
+    public Date getNgayKetThucThu(){
         return ngayKetThucThu;
     }
-
-    public void setNgayKetThucThu(Date ngayKetThucThu) {
+    
+    public void setNgayKetThucThu(Date ngayKetThucThu){
         this.ngayKetThucThu = ngayKetThucThu;
     }
-
-    public int getSoTienTrenMotNhanKhau() {
+    
+    public int getSoTienTrenMotNhanKhau(){
         return soTienTrenMotNhanKhau;
     }
-
-    public void setSoTienTrenMotNhanKhau(int soTienTrenMotNhanKhau) {
+    
+    public void setSoTienTrenMotNhanKhau(int soTienTrenMotNhanKhau){
         this.soTienTrenMotNhanKhau = soTienTrenMotNhanKhau;
     }
-
-    public Date getNgayTao() {
+    
+    public Date getNgayTao(){
         return ngayTao;
     }
-
-    public void setNgayTao(Date ngayTao) {
+    
+    public void setNgayTao(Date ngayTao){
         this.ngayTao = ngayTao;
     }
-    
-    
 }
 
 
