@@ -30,7 +30,7 @@ public class ThuPhiService {
             while(rs.next()){
                 DotThuBean temp =  new DotThuBean();
                 DotThuModel dotThuModel = temp.getDotThuModel();
-                dotThuModel.setID(rs.getInt("idDotThu"));
+                dotThuModel.setIDDotThu(rs.getInt("idDotThu"));
                 dotThuModel.setTenDotThu(rs.getString("tenDotThu"));
                 dotThuModel.setLoaiPhiThu(rs.getString("loaiPhiThu"));
                 dotThuModel.setNgayBatDauThu(rs.getDate("ngayBatDauThu"));
@@ -65,7 +65,7 @@ public class ThuPhiService {
             while(rs.next()){
                 DotThuBean temp = new DotThuBean();
                 DotThuModel dotThu = temp.getDotThuModel();
-                dotThu.setID(rs.getInt("idDotThu"));
+                dotThu.setIDDotThu(rs.getInt("idDotThu"));
                 dotThu.setTenDotThu(rs.getString("tenDotThu"));
                 dotThu.setLoaiPhiThu(rs.getString("loaiPhiThu"));
                 dotThu.setNgayBatDauThu(rs.getDate("ngayBatDauThu"));
