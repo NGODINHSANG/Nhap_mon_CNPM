@@ -9,22 +9,23 @@ import java.util.List;
 import models.HoKhauModel;
 import models.DotThuModel;
 import models.ThongTinThuPhiModel;
+import services.ThuPhiService;
 /**
  *
  * @author Ngo Viet Cuong
  */
 public class DotThuBean {
     private DotThuModel dotThuModel;
-    private List<ThongTinThuPhiBean> listThongTinThuPhiBeans;
+    private List<ThongTinThuPhiModel> listThongTinThuPhiModels;
     
-    public DotThuBean(DotThuModel dotThuModel, List<ThongTinThuPhiBean> listThongTinThuPhiBeans){
+    public DotThuBean(DotThuModel dotThuModel, List<ThongTinThuPhiModel> listThongTinThuPhiModels){
         this.dotThuModel = dotThuModel;
-        this.listThongTinThuPhiBeans = listThongTinThuPhiBeans;
+        this.listThongTinThuPhiModels = listThongTinThuPhiModels;
     }
     
     public DotThuBean(){
         this.dotThuModel = new DotThuModel();
-        this.listThongTinThuPhiBeans = new ArrayList<>();
+        this.listThongTinThuPhiModels = new ArrayList<>();
     }
     
     public DotThuModel getDotThuModel(){
@@ -35,48 +36,54 @@ public class DotThuBean {
         this.dotThuModel = dotThuModel;
     }
     
-    public List<ThongTinThuPhiBean> getThongTinThuPhiModel(){
-        return listThongTinThuPhiBeans;
+    public List<ThongTinThuPhiModel> getThongTinThuPhiModel(){
+        return listThongTinThuPhiModels;
     }
     
-    public void setThongTinThuPhiBean(List<ThongTinThuPhiBean> listThongTinThuPhiBeans){
-        this.listThongTinThuPhiBeans = listThongTinThuPhiBeans;
+    public void setThongTinThuPhiModel(List<ThongTinThuPhiModel> listThongTinThuPhiModels){
+        this.listThongTinThuPhiModels = listThongTinThuPhiModels;
     }
-    /*
+    
     @Override
     public String toString(){
-        String res = "<html><style>p {padding: 5px; margin-left: 20px} table, th, td {border: 1px solid black; border-collapse: collapse;} table {width: 500px}</style> <div>"
+        String res = "<html><style>p {padding: 5px; margin-left: 20px;} table, th, td {border: 1px solid black; border-collapse: collapse;} table {width: 500px} </style>  <div>"
                 + "<h3>Thông tin đợt thu:"
+                + "<p>Mã đợt thu: <b>" + dotThuModel.getMaDotThu() + "</p>"
                 + "<p>Tên đợt thu : <b>" + dotThuModel.getTenDotThu() +"</p>"
                 + "<p>Loại phí thu: <b>" + dotThuModel.getLoaiPhiThu() + "</p>"
                 + "<p>Ngày bắt đầu thu: <b>" + dotThuModel.getNgayBatDauThu().toString() + "</p>"
                 + "<p>Ngày kết thúc thu: <b>" + dotThuModel.getNgayKetThucThu().toString() + "</p>"
-                + "<p>Số tiền trên một nhân khẩu: <b>" + dotThuModel.getSoTienTrenMotNhanKhau() + "</p>"
+                + "<p>Số tiền trên một nhân khẩu: <b>" + dotThuModel.getSoTienTrenMotNhanKhau() + "(đồng)</p>"
                 + "<p>Ngày tạo : <b>" + dotThuModel.getNgayTao() + "</p>"
-                + "<h4>Các hộ: "
+                + "<p>Tổng số tiền cần thu: <b>" + ThuPhiService.tongSoTienCanNop(this.dotThuModel.getMaDotThu()) + "(đồng)</p>"
+                + "<h4>Danh sách các hộ: "
                 + "<tr>"
-                + "<th>ID hộ khẩu</th>"
+                + "<th>Mã hộ khẩu</th>"
                 + "<th>Số nhân khẩu</th>"
-                + "<th>Tổng số tiền</th>"
-                + "<th>Ngày thu</th>";;
-        for(ThongTinThuPhiBean thongTinThuPhi: listThongTinThuPhiBeans){
+                + "<th>Số tiền(đồng)</th>"
+                + "<th>Ngày thu</th>"
+                + "</tr>";
+        for(ThongTinThuPhiModel thongTinThuPhi: listThongTinThuPhiModels){
+            String temp = (thongTinThuPhi.getNgayThu()==null)?"Chưa thu":thongTinThuPhi.getNgayThu().toString();
             res += "<tr>"
                     + "<td>"
-                    + thongTinThuPhi.getHoKhauModel().getMaHoKhau()
+                    + thongTinThuPhi.getMaHoKhau()
                     + "</td>"
                     + "<td>"
-                    + thongTinThuPhi.getThongTinThuPhiModel().getSoNhanKhau()
+                    + thongTinThuPhi.getSoNhanKhau()
                     + "</td>"
                     + "<td>"        
-                    + thongTinThuPhi.getThongTinThuPhiModel().getTongSoTien()
+                    + thongTinThuPhi.getTongSoTien()
                     + "</td>"
                     + "<td>"
-                    + thongTinThuPhi.getThongTinThuPhiModel().getNgayThu().toString()
+                    + temp
                     + "</td>" 
-                    +"<tr>";          
+                    +"</tr>";          
         }
         res +=  "</table>"
-                + "</div></html>";
+              + "<h3>Tồng số tiền đã thu: " + ThuPhiService.tongSoTien(this.dotThuModel.getMaDotThu()) +"(đồng)"
+              + "<h3 style=" + "margin-top:-2px;" + ">Số hộ đã nộp: " + ThuPhiService.soHoKhau(this.dotThuModel.getMaDotThu())
+              + "</div></html>";
         return res;
-    }*/
+    }
 }
