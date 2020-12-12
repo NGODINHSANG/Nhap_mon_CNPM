@@ -69,9 +69,9 @@ void close() {
 
         jPanel1 = new javax.swing.JPanel();
         CheckIDDotThu = new javax.swing.JButton();
-        idDotThu = new javax.swing.JTextField();
+        maDotThu = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        idHoKhau = new javax.swing.JTextField();
+        maHoKhau = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         soTien = new javax.swing.JTextField();
@@ -84,9 +84,6 @@ void close() {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         CheckIDHoKhau = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
-        soNhanKhau = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
         availableHoKhau = new javax.swing.JLabel();
         availableDotThu = new javax.swing.JLabel();
 
@@ -105,11 +102,17 @@ void close() {
             }
         });
 
-        jLabel1.setText("ID đợt thu");
+        jLabel1.setText("Mã đợt thu");
 
-        jLabel2.setText("ID hộ khẩu");
+        jLabel2.setText("Mã hộ khẩu");
 
         jLabel3.setText("Số tiền");
+
+        soTien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                soTienActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Ngày thu");
 
@@ -150,11 +153,6 @@ void close() {
             }
         });
 
-        jLabel9.setText("Số nhân khẩu");
-
-        jLabel10.setForeground(java.awt.Color.red);
-        jLabel10.setText("(*)");
-
         availableHoKhau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/checked.png"))); // NOI18N
         availableHoKhau.setEnabled(false);
 
@@ -173,47 +171,42 @@ void close() {
                 .addGap(52, 52, 52))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
-                        .addComponent(soNhanKhau))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3)
                             .addComponent(jLabel4))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(28, 28, 28)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(idDotThu)
-                                    .addComponent(soTien)
+                                    .addComponent(maDotThu)
                                     .addComponent(ngayThu, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                                .addComponent(idHoKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(maHoKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CheckIDDotThu))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CheckIDHoKhau, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(availableHoKhau)
-                            .addComponent(availableDotThu)))
-                    .addComponent(jLabel10))
-                .addContainerGap(50, Short.MAX_VALUE))
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(soTien, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CheckIDDotThu))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CheckIDHoKhau, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(availableHoKhau)
+                    .addComponent(availableDotThu))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,7 +214,7 @@ void close() {
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(idDotThu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(maDotThu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(CheckIDDotThu)
                         .addComponent(jLabel1)
                         .addComponent(jLabel5))
@@ -231,23 +224,18 @@ void close() {
                         .addGap(23, 23, 23)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(idHoKhau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(maHoKhau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(CheckIDHoKhau)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(availableHoKhau)))
-                .addGap(13, 13, 13)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(soNhanKhau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(soTien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(ngayThu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -284,10 +272,10 @@ void close() {
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
         // TODO add your handling code here:
         if(this.checkInForm()){
-            ThongTinThuPhiModel temp = this.thongTinThuPhiBean.getThongTinThuPhiModel();
-            temp.setIDDotThu(Integer.parseInt(idDotThu.getText()));
-            temp.setIDHoKhau(Integer.parseInt(idHoKhau.getText()));
-            temp.setSoNhanKhau(Integer.parseInt(soNhanKhau.getText()));
+            if(controller.checkMaDotThu(maDotThu.getText())||controller.checkMaHoKhau(maHoKhau.getText())){
+                ThongTinThuPhiModel temp = this.thongTinThuPhiBean.getThongTinThuPhiModel();
+            temp.setMaDotThu(maDotThu.getText());
+            temp.setMaHoKhau(maHoKhau.getText());
             temp.setTongSoTien(Integer.parseInt(soTien.getText()));
             temp.setNgayThu(ngayThu.getDate());
             try{
@@ -303,13 +291,15 @@ void close() {
                 System.out.println(e.getMessage());
                 JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
             }
-        }
+        }else JOptionPane.showMessageDialog(null, "Mã đợt thu hoặc mã hộ khẩu không hợp lệ!!");
+                
+    }
     }//GEN-LAST:event_updateActionPerformed
 
     private void CheckIDDotThuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckIDDotThuActionPerformed
         // TODO add your handling code here:
         if(this.checkIDDotThu()){
-            if(controller.checkIDDotThu(Integer.parseInt(idDotThu.getText()))){
+            if(controller.checkMaDotThu(maDotThu.getText())){
             JOptionPane.showMessageDialog(rootPane, "ID đã có","Check ID", JOptionPane.INFORMATION_MESSAGE);
             this.availableDotThu.setEnabled(true);
             }
@@ -321,7 +311,7 @@ void close() {
     private void CheckIDHoKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckIDHoKhauActionPerformed
         // TODO add your handling code here:
         if(this.checkIDHoKhau()){
-            if(controller.checkIDHoKhau(Integer.parseInt(idHoKhau.getText()))){
+            if(controller.checkMaHoKhau(maHoKhau.getText())){
             JOptionPane.showMessageDialog(rootPane, "ID đã có","Check ID", JOptionPane.INFORMATION_MESSAGE);
             this.availableDotThu.setEnabled(true);
             }
@@ -330,18 +320,22 @@ void close() {
         }
         else    JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập hết các trường bắt buộc", "Warning", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_CheckIDHoKhauActionPerformed
+
+    private void soTienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soTienActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_soTienActionPerformed
     
     private boolean checkIDDotThu(){
-        return !idDotThu.getText().trim().isEmpty();
+        return !maDotThu.getText().trim().isEmpty();
     }
     
     private boolean checkIDHoKhau(){
-        return !idHoKhau.getText().trim().isEmpty();
+        return !maHoKhau.getText().trim().isEmpty();
     }
     
     private boolean checkInForm(){
-        if(idDotThu.getText().trim().isEmpty()
-                || idHoKhau.getText().trim().isEmpty()
+        if(maDotThu.getText().trim().isEmpty()
+                || maHoKhau.getText().trim().isEmpty()
                 || ngayThu.getDate().toString().isEmpty()
                 || soTien.getText().isEmpty())
         {
@@ -357,10 +351,7 @@ void close() {
     private javax.swing.JLabel availableDotThu;
     private javax.swing.JLabel availableHoKhau;
     private javax.swing.JButton cancel;
-    private javax.swing.JTextField idDotThu;
-    private javax.swing.JTextField idHoKhau;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -368,10 +359,10 @@ void close() {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField maDotThu;
+    private javax.swing.JTextField maHoKhau;
     private com.toedter.calendar.JDateChooser ngayThu;
-    private javax.swing.JTextField soNhanKhau;
     private javax.swing.JTextField soTien;
     private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables

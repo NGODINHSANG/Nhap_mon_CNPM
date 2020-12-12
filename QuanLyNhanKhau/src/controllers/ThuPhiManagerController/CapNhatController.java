@@ -24,14 +24,21 @@ public boolean capNhatThongTin(ThongTinThuPhiBean thongTinThuPhiBean) throws SQL
         ThongTinThuPhiModel thongTinThuPhiModel = thongTinThuPhiBean.getThongTinThuPhiModel();
         try{
             Connection connection = MysqlConnection.getMysqlConnection();
-            String query = "INSERT INTO thong_tin_thu_phi (idDotThu, idHoKhau, soNhanKhau, tongSoTien, ngayThu)" + "value (?,?,?,?,?)";
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, thongTinThuPhiModel.getIDDotThu());
-            preparedStatement.setInt(2, thongTinThuPhiModel.getIDHoKhau());
-            preparedStatement.setInt(3, thongTinThuPhiModel.getSoNhanKhau());
-            preparedStatement.setInt(4, thongTinThuPhiModel.getTongSoTien());
             Date ngayThu = new Date(thongTinThuPhiModel.getNgayThu().getTime());
-            preparedStatement.setDate(5, ngayThu);
+            String query = "UPDATE thong_tin_thu_phi " 
+                    + "SET tongSoTien = " + thongTinThuPhiModel.getTongSoTien()
+                    +" , ngayThu = ?" //+ ngayThu
+                    + " WHERE maDotThu = \"" + thongTinThuPhiModel.getMaDotThu() 
+                    + "\" AND maHoKhau = \"" + thongTinThuPhiModel.getMaHoKhau()+"\"";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            //preparedStatement.setInt(1, thongTinThuPhiModel.getIDDotThu());
+            //preparedStatement.setInt(2, thongTinThuPhiModel.getIDHoKhau());
+            //preparedStatement.setInt(3, thongTinThuPhiModel.getSoNhanKhau());
+            //preparedStatement.setInt(1, thongTinThuPhiModel.getTongSoTien());
+            
+            preparedStatement.setDate(1, ngayThu);
+            //preparedStatement.setString(3, thongTinThuPhiModel.getMaDotThu());
+            //preparedStatement.setString(4, thongTinThuPhiModel.getMaHoKhau());
             preparedStatement.execute();
             preparedStatement.close();
             connection.close();
@@ -45,12 +52,13 @@ public boolean capNhatThongTin(ThongTinThuPhiBean thongTinThuPhiBean) throws SQL
 
     }
     
-    public boolean checkIDDotThu (int idDotThu){
-          try{
+
+        public boolean checkMaHoKhau(String maHoKhau){
+        try{
             Connection connection = MysqlConnection.getMysqlConnection();
-            String query = "SELECT * FROM dot_thu WHERE idDotThu = ?";
+            String query = "SELECT * FROM thong_tin_thu_phi WHERE maHoKhau = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1,idDotThu);
+            preparedStatement.setString(1,maHoKhau);
             ResultSet rs = preparedStatement.executeQuery();
             if(rs.next()){
                 return true;
@@ -61,13 +69,12 @@ public boolean capNhatThongTin(ThongTinThuPhiBean thongTinThuPhiBean) throws SQL
         }
         return false;
     }
-    
-    public boolean checkIDHoKhau(int idHoKhau){
+        public boolean checkMaDotThu(String maDotThu){
         try{
             Connection connection = MysqlConnection.getMysqlConnection();
-            String query = "SELECT * FROM ho_khau WHERE ID = ?";
+            String query = "SELECT * FROM thong_tin_thu_phi WHERE maDotThu = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1,idHoKhau);
+            preparedStatement.setString(1,maDotThu);
             ResultSet rs = preparedStatement.executeQuery();
             if(rs.next()){
                 return true;
