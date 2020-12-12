@@ -70,13 +70,13 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
         maDotThu = new javax.swing.JTextField();
         huyBtn = new javax.swing.JButton();
         xacNhanBtn = new javax.swing.JButton();
-        availableDotThu = new javax.swing.JLabel();
-        CheckBtn = new javax.swing.JButton();
+        checkBtn = new javax.swing.JButton();
+        availableIcon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Tên đợt thu");
+        jLabel1.setText("Mã đợt thu");
 
         maDotThu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         maDotThu.addActionListener(new java.awt.event.ActionListener() {
@@ -101,50 +101,49 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
             }
         });
 
-        availableDotThu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/checked.png"))); // NOI18N
-        availableDotThu.setEnabled(false);
-
-        CheckBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        CheckBtn.setText("Check");
-        CheckBtn.addActionListener(new java.awt.event.ActionListener() {
+        checkBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        checkBtn.setText("Check");
+        checkBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CheckBtnActionPerformed(evt);
+                checkBtnActionPerformed(evt);
             }
         });
+
+        availableIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/checked.png"))); // NOI18N
+        availableIcon.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(maDotThu, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CheckBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(availableDotThu)
-                        .addGap(37, 37, 37))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(huyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(xacNhanBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55))))
+                        .addGap(47, 47, 47))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(maDotThu, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(checkBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(availableIcon)
+                        .addGap(26, 26, 26))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(maDotThu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(availableDotThu)
-                    .addComponent(CheckBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 284, Short.MAX_VALUE)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(maDotThu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(availableIcon))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(xacNhanBtn)
                     .addComponent(huyBtn))
@@ -178,7 +177,7 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
             tmp.setMaDotThu(maDotThu.getText());
             if(controller.checkMaDotThu(this.dotThuBean.getDotThuModel().getMaDotThu())){
                 JOptionPane.showMessageDialog(rootPane, "OK ! Có đợt thu này trong hệ thống.", "Check Mã Đợt Thu", JOptionPane.INFORMATION_MESSAGE);
-                this.availableDotThu.setEnabled(true);
+                this.availableIcon.setEnabled(true);
                 if(JOptionPane.showConfirmDialog(rootPane, "Bạn muốn xóa đợt thu này trong hệ thống", "Xác nhận xóa đợt thu", JOptionPane.WARNING_MESSAGE) == 0){
                     try {
                         if(controller.xoaDotThu(this.dotThuBean))
@@ -202,7 +201,7 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
         if(this.checkMaDotThu()){
             if(controller.checkMaDotThu(maDotThu.getText())){
                 JOptionPane.showMessageDialog(rootPane, "OK ! Có đợt thu này trong hệ thống.", "Check Mã Đợt Thu", JOptionPane.INFORMATION_MESSAGE);
-                this.availableDotThu.setEnabled(true);
+                this.availableIcon.setEnabled(true);
             }else{
                 JOptionPane.showMessageDialog(rootPane, "Không có đợt thu này trong hệ thống.", "Check Mã Đợt Thu", JOptionPane.WARNING_MESSAGE);
             }
@@ -217,8 +216,8 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CheckBtn;
-    private javax.swing.JLabel availableDotThu;
+    private javax.swing.JLabel availableIcon;
+    private javax.swing.JButton checkBtn;
     private javax.swing.JButton huyBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField maDotThu;
