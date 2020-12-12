@@ -18,7 +18,7 @@ import services.MysqlConnection;
 
 /**
  *
- * @author Dell
+ * @author SangND
  */
 public class ThemMoiController {
     public boolean themMoiDotThu(DotThuBean doThuBean) throws SQLException, ClassNotFoundException{

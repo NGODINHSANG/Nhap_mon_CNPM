@@ -87,6 +87,7 @@ public class ThemDotThuMoiJFrame extends javax.swing.JFrame {
         idDotThu = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         ngayTao = new com.toedter.calendar.JDateChooser();
+        taoDanhSach = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -155,6 +156,13 @@ public class ThemDotThuMoiJFrame extends javax.swing.JFrame {
 
         jLabel11.setText("ID đợt thu");
 
+        taoDanhSach.setText("Tạo danh sách");
+        taoDanhSach.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                taoDanhSachActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -179,9 +187,9 @@ public class ThemDotThuMoiJFrame extends javax.swing.JFrame {
                             .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ngayBatDauThu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                            .addComponent(ngayBatDauThu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
                             .addComponent(ngayKetThucThu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, 0, 282, Short.MAX_VALUE)
+                            .addComponent(jComboBox1, 0, 356, Short.MAX_VALUE)
                             .addComponent(soTien)
                             .addComponent(maDotThu)
                             .addComponent(idDotThu))))
@@ -206,7 +214,9 @@ public class ThemDotThuMoiJFrame extends javax.swing.JFrame {
                         .addComponent(cancelBtn)
                         .addGap(18, 18, 18)
                         .addComponent(createBtn)))
-                .addGap(49, 49, 49))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(taoDanhSach)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,7 +264,8 @@ public class ThemDotThuMoiJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelBtn)
-                    .addComponent(createBtn))
+                    .addComponent(createBtn)
+                    .addComponent(taoDanhSach))
                 .addGap(21, 21, 21))
         );
 
@@ -264,11 +275,13 @@ public class ThemDotThuMoiJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 50, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -325,9 +338,11 @@ public class ThemDotThuMoiJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_maDotThuActionPerformed
 
-public static void main(String args[]){
-new ThemDotThuMoiJFrame().setVisible(true);
-}
+    private void taoDanhSachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taoDanhSachActionPerformed
+        // TODO add your handling code here:
+        new TaoDanhSach(this,maDotThu.getText()).setVisible(true);
+    }//GEN-LAST:event_taoDanhSachActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelBtn;
@@ -351,6 +366,7 @@ new ThemDotThuMoiJFrame().setVisible(true);
     private com.toedter.calendar.JDateChooser ngayKetThucThu;
     private com.toedter.calendar.JDateChooser ngayTao;
     private javax.swing.JTextField soTien;
+    private javax.swing.JButton taoDanhSach;
     private javax.swing.JTextField tenDotThu;
     // End of variables declaration//GEN-END:variables
 }
