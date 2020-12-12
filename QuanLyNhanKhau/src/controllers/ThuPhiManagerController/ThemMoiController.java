@@ -18,7 +18,7 @@ import services.MysqlConnection;
 
 /**
  *
- * @author Dell
+ * @author SangND
  */
 public class ThemMoiController {
     public boolean themMoiDotThu(DotThuBean doThuBean) throws SQLException, ClassNotFoundException{
@@ -28,7 +28,7 @@ public class ThemMoiController {
             String query = "INSERT INTO dot_thu (idDotThu, maDotThu, tenDotThu, loaiPhiThu, ngayBatDauThu, ngayKetThucThu, soTienTrenMotNhanKhau, ngayTao)" 
                     + "value (?,?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1,dotThuModel.getID());
+            preparedStatement.setInt(1,dotThuModel.getIDDotThu());
             preparedStatement.setString(2,dotThuModel.getMaDotThu());
             preparedStatement.setString(3,dotThuModel.getTenDotThu());
             preparedStatement.setString(4,dotThuModel.getLoaiPhiThu());
