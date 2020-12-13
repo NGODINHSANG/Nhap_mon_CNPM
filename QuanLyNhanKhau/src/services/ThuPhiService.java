@@ -46,7 +46,7 @@ public class ThuPhiService {
                 dotThuModel.setSoTienTrenMotNhanKhau(rs.getInt("soTienTrenMotNhanKhau"));
                 dotThuModel.setNgayTao(rs.getDate("ngayTao")); 
                 try{
-                    String query = "SELECT maDotThu, maHoKhau, soNhanKhau, tongSoTien, ngayThu FROM thong_tin_thu_phi WHERE maDotThu = '" + maDotThu+ "'"; 
+                    String query = "SELECT * FROM thong_tin_thu_phi WHERE maDotThu = '" + maDotThu +"'"; 
                     PreparedStatement ppsm = (PreparedStatement)connection.prepareStatement(query);
                     ResultSet rs1 = ppsm.executeQuery();
                     List<ThongTinThuPhiModel> listThongTinThuPhiModel = new ArrayList<>();
@@ -75,56 +75,33 @@ public class ThuPhiService {
         }
         return list;
     }
-    
-    //Thong ke tong so tien can thu
-    public static int tongSoTienCanNop(String maDotThu){
-        int tien = 0;
+
+    //Hien thi thong tin chi tiet dot thu
+    public DotThuBean getDotThu(String maDotThu){
+        DotThuBean dotThuBean = new DotThuBean();
         try{
             Connection connection = MysqlConnection.getMysqlConnection();
-            String query = "SELECT (COUNT(maHoKhau) * soTienTrenMotNhanKhau) AS sotien FROM `dot_thu` dt,`thong_tin_thu_phi` tt WHERE dt.maDotThu = tt.maDotThu AND tt.maDotThu = '" + maDotThu +"'";         
-            PreparedStatement preparedStatement = (PreparedStatement)connection.prepareStatement(query);
+            String Query = "Select * FROM dot_thu WHERE maDotThu = " + maDotThu;
+            PreparedStatement preparedStatement = (PreparedStatement)connection.prepareStatement(Query);
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
-                tien = rs.getInt("sotien");
+                DotThuModel dotThuModel = dotThuBean.getDotThuModel();
+                dotThuModel.setIDDotThu(rs.getInt("idDotThu"));
+                dotThuModel.setMaDotThu(maDotThu);
+                dotThuModel.setTenDotThu(rs.getString("tenDotThu"));
+                dotThuModel.setLoaiPhiThu(rs.getString("loaiPhiThu"));
+                dotThuModel.setNgayBatDauThu(rs.getDate("ngayBatDauThu"));
+                dotThuModel.setNgayKetThucThu(rs.getDate("ngayKetThucThu"));
+                dotThuModel.setSoTienTrenMotNhanKhau(rs.getInt("soTienTrenMotNhanKhau"));
+                dotThuModel.setNgayTao(rs.getDate("ngayTao"));
             }
-        }catch(ClassNotFoundException | SQLException e){
-            System.out.println(e.getMessage());
+            preparedStatement.close();
+            connection.close();
         }
-        return tien;
-    }
-    
-    //Thong ke tong so tien trong moi dot thu
-    public static int tongSoTien(String maDotThu){
-        int tien = 0;
-        try{
-            Connection connection = MysqlConnection.getMysqlConnection();
-            String query = "SELECT SUM(tongSoTien) AS tien FROM `thong_tin_thu_phi` WHERE maDotThu = '" + maDotThu + "'";
-            PreparedStatement preparedStatement = (PreparedStatement)connection.prepareStatement(query); 
-            ResultSet rs = preparedStatement.executeQuery();
-            while(rs.next()){
-                tien = rs.getInt("tien");
-            }
-        }catch(ClassNotFoundException | SQLException e){
-            System.out.println(e.getMessage());
+        catch(Exception e){
+            System.out.println(e.getMessage());   
         }
-        return tien;
-    }
-    
-    //Thong ke so ho da nop tien
-    public static int soHoKhau(String maDotThu){
-        int tongSoHo = 0;
-        try{
-            Connection connection = MysqlConnection.getMysqlConnection();
-            String query = "SELECT COUNT(*) as tongSoHo FROM thong_tin_thu_phi WHERE maDotThu = '" + maDotThu +"' AND tongSoTien > 0 GROUP BY maDotThu";
-            PreparedStatement preparedStatement = (PreparedStatement)connection.prepareStatement(query);
-            ResultSet rs = preparedStatement.executeQuery();
-            while(rs.next()){
-                tongSoHo = rs.getInt("tongSoHo");
-            }
-        }catch(ClassNotFoundException | SQLException e){
-            System.out.println(e.getMessage());
-        }
-        return tongSoHo;
+        return dotThuBean;
     }
     
     //Tim kiem dot thu theo ten
@@ -157,12 +134,73 @@ public class ThuPhiService {
             preparedStatement.close();
             connection.close();
         }
-        catch(Exception e){
+        catch(ClassNotFoundException | SQLException e){
             System.out.println(e.getMessage());
         }
         return list;
     }
     
-   
+    public List<ThongTinThuPhiBean> getListThongTinThuPhi(String maHKjtf ) {
+        List<ThongTinThuPhiBean> list = new ArrayList<>(); 
+        try{
+            List<ThongTinThuPhiModel> listThongTinThuPhiModel = new ArrayList<>();
+            try (Connection connection = MysqlConnection.getMysqlConnection()) {
+                String Query = "Select * FROM thong_tin_thu_phi "
+                        + "WHERE maHoKhau = ?";
+                try (PreparedStatement preparedStatement = (PreparedStatement)connection.prepareStatement(Query)) {
+                    preparedStatement.setString(1,maHKjtf);
+                    ResultSet rs = preparedStatement.executeQuery();
+                    while(rs.next()){
+                        ThongTinThuPhiBean temp = new ThongTinThuPhiBean();
+                        ThongTinThuPhiModel thongTinThuPhiModel = temp.getThongTinThuPhiModel();
+                        thongTinThuPhiModel.setMaDotThu(rs.getString(1));
+                        thongTinThuPhiModel.setMaHoKhau(rs.getString(2));
+                        thongTinThuPhiModel.setSoNhanKhau(rs.getInt(3));
+                        thongTinThuPhiModel.setTongSoTien(rs.getInt(4));
+                        thongTinThuPhiModel.setNgayThu(rs.getDate(5));
+                        //listThongTinThuPhiModel.add(thongTinThuPhiModel);
+                        temp.setThongTinThuPhiModel(thongTinThuPhiModel);
+                        list.add(temp);
+                    }
+                }
+            }
+        }
+        catch(ClassNotFoundException | SQLException e){
+            System.out.println(e.getMessage());   
+        }
+        return list;
+    }
+        public List<ThongTinThuPhiBean> getListThongTinThuPhi() {
+        List<ThongTinThuPhiBean> list = new ArrayList<>(); 
+        try{
+            List<ThongTinThuPhiModel> listThongTinThuPhiModel = new ArrayList<>();
+            try (Connection connection = MysqlConnection.getMysqlConnection()) {
+                String Query = "Select * FROM thong_tin_thu_phi ";
+                       // + "WHERE maDotThu = ?";
+                try (PreparedStatement preparedStatement = (PreparedStatement)connection.prepareStatement(Query)) {
+                    //preparedStatement.setString(1,maDotThu);
+                    ResultSet rs = preparedStatement.executeQuery();
+                    while(rs.next()){
+                        ThongTinThuPhiBean temp = new ThongTinThuPhiBean();
+                        ThongTinThuPhiModel thongTinThuPhiModel = temp.getThongTinThuPhiModel();
+                        thongTinThuPhiModel.setMaDotThu(rs.getString(1));
+                        thongTinThuPhiModel.setMaHoKhau(rs.getString(2));
+                        thongTinThuPhiModel.setSoNhanKhau(rs.getInt(3));
+                        thongTinThuPhiModel.setTongSoTien(rs.getInt(4));
+                        thongTinThuPhiModel.setNgayThu(rs.getDate(5));
+                        //listThongTinThuPhiModel.add(thongTinThuPhiModel);
+                        temp.setThongTinThuPhiModel(thongTinThuPhiModel);
+                        list.add(temp);
+                    }
+                }
+            }
+        }
+        catch(ClassNotFoundException | SQLException e){
+            System.out.println(e.getMessage());   
+        }
+        return list;
+    }
+
+    
     
 }
