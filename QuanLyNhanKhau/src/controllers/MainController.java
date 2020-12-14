@@ -59,9 +59,9 @@ public class MainController {
                     view = new ThongKePanel(this.jfrMain);
                     break;
                 //any more
-                case "ThuPhi":
-                    view = new ThuPhiPanel(this.jfrMain);
-                    break;
+                //case "ThuPhi":
+                  //  view = new ThuPhiPanel(this.jfrMain);
+                    //break;
                 default:
                     break;
             }
@@ -131,9 +131,9 @@ public class MainController {
                 case "ThongKe":
                     view = new ThongKePanel(this.jfrMain);
                     break;
-                case "ThuPhi":
-                    view = new ThuPhiPanel(this.jfrMain);
-                    break;
+                //case "ThuPhi":
+                  //  view = new ThuPhiPanel(this.jfrMain);
+                    //break;
                 default:
                     break;
             }
