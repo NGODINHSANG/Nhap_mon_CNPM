@@ -334,7 +334,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`ID`, `userName`, `passwd`) VALUES
-(1, 'admin', '1');
+(1, 'admin', '1'),(2,'ketoan',2),(3,'totruong',1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
