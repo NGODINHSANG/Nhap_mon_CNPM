@@ -37,7 +37,7 @@ public class ThuPhiPanelController {
     private JPanel jpnView;
     private final ThuPhiService thuPhiService = new ThuPhiService();
     private final TableModelThuPhi tableModelThuPhi = new TableModelThuPhi();
-    private final String COLUNMS[] = {"Tên đợt thu", "Loại phí thu","Ngày bắt đầu thu","Ngày kết thúc thu","Số tiền trên một nhân khẩu"};  
+    private final String COLUNMS[] = {"Mã đợt thu","Tên đợt thu", "Loại phí thu","Ngày bắt đầu thu","Ngày kết thúc thu","Số tiền trên một nhân khẩu"};  
     private JFrame parentJFrame;
 
     public ThuPhiPanelController(JTextField searchJtf, JPanel tableJpn) {
