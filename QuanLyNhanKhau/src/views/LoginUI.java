@@ -43,13 +43,20 @@ public class LoginUI extends javax.swing.JFrame {
         String userName = txbUserName.getText();
         String password = String.valueOf(txbPasswd.getPassword());
         try {
-            if (this.cont.login(userName, password)) {
+            if (this.cont.login(userName, password)==1) {
                 dispose();
                 MainFrame mainFrame = new MainFrame();
                 mainFrame.setLocationRelativeTo(null);
                 mainFrame.setResizable(false);
                 mainFrame.setVisible(true);
-            } else {
+                
+            } else if(this.cont.login(userName, password)==2){
+                ThuPhiMainFrame thuPhiMainFrame = new ThuPhiMainFrame();
+                thuPhiMainFrame.setLocationRelativeTo(null);
+                thuPhiMainFrame.setResizable(false);
+                thuPhiMainFrame.setVisible(true);
+            }
+            else{
                 JOptionPane.showMessageDialog(rootPane, "Sai thong tin dang nhap", "Warning", JOptionPane.WARNING_MESSAGE);
             }
         } catch (SQLException | ClassNotFoundException e) {
