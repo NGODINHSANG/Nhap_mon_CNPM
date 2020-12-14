@@ -193,7 +193,7 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
             }
         }else{
             JOptionPane.showMessageDialog(rootPane, "Please Enter the required fields !", "Warning", JOptionPane.WARNING_MESSAGE);
-        }
+        }}
     }//GEN-LAST:event_xacNhanBtnActionPerformed
 
     private void CheckBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBtnActionPerformed

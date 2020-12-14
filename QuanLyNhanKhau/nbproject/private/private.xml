@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-
-            <file>file:/C:/Users/LENOVO/OneDrive/Desktop/Nhap_mon_CNPM/QuanLyNhanKhau/src/views/ThuPhiManagerFrame/ThongKeChiTietJFrame.java</file>
-            <file>file:/C:/Users/LENOVO/OneDrive/Desktop/Nhap_mon_CNPM/QuanLyNhanKhau/src/controllers/ThuPhiManagerController/ThongKeChiTietController.java</file>
-            <file>file:/C:/Users/LENOVO/OneDrive/Desktop/Nhap_mon_CNPM/QuanLyNhanKhau/src/utility/TableModelThuPhi.java</file>
-            <file>file:/C:/Users/LENOVO/OneDrive/Desktop/Nhap_mon_CNPM/QuanLyNhanKhau/src/views/ThuPhiManagerFrame/ThemDotThuMoiJFrame.java</file>
-            
-
+            <file>file:/F:/Nhap_Mon_CNPM/ver02_14_12/Nhap_mon_CNPM/QuanLyNhanKhau/src/views/ThuPhiManagerFrame/XoaDotThuJFrame.java</file>
+            <file>file:/F:/Nhap_Mon_CNPM/ver02_14_12/Nhap_mon_CNPM/QuanLyNhanKhau/src/Bean/DotThuBean.java</file>
+            <file>file:/F:/Nhap_Mon_CNPM/ver02_14_12/Nhap_mon_CNPM/QuanLyNhanKhau/src/controllers/ThuPhiManagerController/ThemMoiController.java</file>
+            <file>file:/F:/Nhap_Mon_CNPM/ver02_14_12/Nhap_mon_CNPM/QuanLyNhanKhau/src/services/ThuPhiService.java</file>
         </group>
     </open-files>
 </project-private>
