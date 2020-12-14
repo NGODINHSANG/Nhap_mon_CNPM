@@ -1,4 +1,5 @@
-/*
+
+        /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -366,7 +367,7 @@ public class ThemDotThuMoiJFrame extends javax.swing.JFrame {
 
     private void taoDanhSachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taoDanhSachActionPerformed
         // TODO add your handling code here:
-        new TaoDanhSach(this,maDotThu.getText()).setVisible(true);
+       // new TaoDanhSach(this,maDotThu.getText()).setVisible(true);
     }//GEN-LAST:event_taoDanhSachActionPerformed
 
     private void checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkActionPerformed
