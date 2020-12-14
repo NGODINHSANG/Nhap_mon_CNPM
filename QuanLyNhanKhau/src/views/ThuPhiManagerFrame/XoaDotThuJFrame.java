@@ -18,21 +18,19 @@ import models.DotThuModel;
 
 /**
  *
- * @author Ngo Viet Cuong
+ * @author dungg
  */
 public class XoaDotThuJFrame extends javax.swing.JFrame {
-    //Declare
+	//Declare
     private JFrame parentFrame;
     private XoaController controller;
     private DotThuBean dotThuBean;
     /**
      * Creates new form XoaDotThuJFrame
      */
-
     public XoaDotThuJFrame() {
         initComponents();
     }
-
     public XoaDotThuJFrame(JFrame parentFrame) {
         this.parentFrame = parentFrame;
         initComponents();
@@ -56,7 +54,6 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
         this.parentFrame.setEnabled(true);
         dispose();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,7 +68,7 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
         huyBtn = new javax.swing.JButton();
         xacNhanBtn = new javax.swing.JButton();
         checkBtn = new javax.swing.JButton();
-        availableIcon = new javax.swing.JLabel();
+        availableDotThu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,40 +106,41 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
             }
         });
 
-        availableIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/checked.png"))); // NOI18N
-        availableIcon.setEnabled(false);
+        availableDotThu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/checked.png"))); // NOI18N
+        availableDotThu.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(huyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(xacNhanBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(maDotThu, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(6, 6, 6)
+                        .addComponent(maDotThu, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(checkBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(availableIcon)
-                        .addGap(26, 26, 26))))
+                        .addComponent(availableDotThu)
+                        .addGap(28, 28, 28))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(maDotThu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(checkBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(availableIcon))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(maDotThu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(checkBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1))
+                    .addComponent(availableDotThu))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(xacNhanBtn)
@@ -153,7 +151,40 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(XoaDotThuJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(XoaDotThuJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(XoaDotThuJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(XoaDotThuJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new XoaDotThuJFrame().setVisible(true);
+            }
+        });
+    }
     private boolean checkMaDotThu(){
         return !maDotThu.getText().trim().isEmpty();
     }
@@ -172,51 +203,45 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
     private void xacNhanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xacNhanBtnActionPerformed
         // TODO add your handling code here:
         if(this.checkMaDotThu()){
-            if(controller.checkMaDotThu(maDotThu.getText())){
-                DotThuModel tmp = this.dotThuBean.getDotThuModel();
+            DotThuModel tmp = this.dotThuBean.getDotThuModel();
             tmp.setMaDotThu(maDotThu.getText());
             if(controller.checkMaDotThu(this.dotThuBean.getDotThuModel().getMaDotThu())){
-                JOptionPane.showMessageDialog(rootPane, "OK ! Có đợt thu này trong hệ thống.", "Check Mã Đợt Thu", JOptionPane.INFORMATION_MESSAGE);
-                this.availableIcon.setEnabled(true);
+                JOptionPane.showMessageDialog(rootPane, "OK ! Có đợt thu này trong hệ thống.", "Check Tên Đợt Thu", JOptionPane.INFORMATION_MESSAGE);
+                this.availableDotThu.setEnabled(true);
                 if(JOptionPane.showConfirmDialog(rootPane, "Bạn muốn xóa đợt thu này trong hệ thống", "Xác nhận xóa đợt thu", JOptionPane.WARNING_MESSAGE) == 0){
                     try {
                         if(controller.xoaDotThu(this.dotThuBean))
                            JOptionPane.showMessageDialog(rootPane, "Xóa thành công", "Xóa Đợt Thu", JOptionPane.INFORMATION_MESSAGE) ;
                     } catch (Exception e) {
                        System.out.println(e.getMessage());
-                       JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui lòng kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
+                       JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
       
                     }
                 };
             }else{
-                JOptionPane.showMessageDialog(rootPane, "Không có đợt thu này trong hệ thống.", "Check Mã Đợt Thu", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(rootPane, "Không có đợt thu này trong hệ thống.", "Check Tên Đợt Thu", JOptionPane.WARNING_MESSAGE);
             }
         }else{
             JOptionPane.showMessageDialog(rootPane, "Please Enter the required fields !", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_xacNhanBtnActionPerformed
 
-    private void CheckBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBtnActionPerformed
+    private void checkBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBtnActionPerformed
         // TODO add your handling code here:
         if(this.checkMaDotThu()){
             if(controller.checkMaDotThu(maDotThu.getText())){
-                JOptionPane.showMessageDialog(rootPane, "OK ! Có đợt thu này trong hệ thống.", "Check Mã Đợt Thu", JOptionPane.INFORMATION_MESSAGE);
-                this.availableIcon.setEnabled(true);
+                JOptionPane.showMessageDialog(rootPane, "OK ! Có đợt thu này trong hệ thống.", "Check Tên Đợt Thu", JOptionPane.INFORMATION_MESSAGE);
+                this.availableDotThu.setEnabled(true);
             }else{
-                JOptionPane.showMessageDialog(rootPane, "Không có đợt thu này trong hệ thống.", "Check Mã Đợt Thu", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(rootPane, "Không có đợt thu này trong hệ thống.", "Check Tên Đợt Thu", JOptionPane.WARNING_MESSAGE);
             }
         }else{
             JOptionPane.showMessageDialog(rootPane, "Please Enter the required fields !", "Warning", JOptionPane.WARNING_MESSAGE);
         }
-    }//GEN-LAST:event_CheckBtnActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-   
+    }//GEN-LAST:event_checkBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel availableIcon;
+    private javax.swing.JLabel availableDotThu;
     private javax.swing.JButton checkBtn;
     private javax.swing.JButton huyBtn;
     private javax.swing.JLabel jLabel1;
