@@ -55,7 +55,7 @@ public class DotThuBean {
                 + "<p>Ngày kết thúc thu: <b>" + dotThuModel.getNgayKetThucThu().toString() + "</p>"
                 + "<p>Số tiền trên một nhân khẩu: <b>" + dotThuModel.getSoTienTrenMotNhanKhau() + "(đồng)</p>"
                 + "<p>Ngày tạo : <b>" + dotThuModel.getNgayTao() + "</p>"
-               // + "<p>Tổng số tiền cần thu: <b>" + ThuPhiService.tongSoTienCanNop(this.dotThuModel.getMaDotThu()) + "(đồng)</p>"
+                + "<p>Tổng số tiền cần thu: <b>" + ThuPhiService.tongSoTienCanNop(this.dotThuModel.getMaDotThu()) + "(đồng)</p>"
                 + "<h4>Danh sách các hộ: "
                 + "<tr>"
                 + "<th>Mã hộ khẩu</th>"
@@ -81,8 +81,8 @@ public class DotThuBean {
                     +"</tr>";          
         }
         res +=  "</table>"
-           //   + "<h3>Tồng số tiền đã thu: " + ThuPhiService.tongSoTien(this.dotThuModel.getMaDotThu()) +"(đồng)"
-          //    + "<h3 style=" + "margin-top:-2px;" + ">Số hộ đã nộp: " + ThuPhiService.soHoKhau(this.dotThuModel.getMaDotThu())
+              + "<h3>Tồng số tiền đã thu: " + ThuPhiService.tongSoTien(this.dotThuModel.getMaDotThu()) +"(đồng)"
+              + "<h3 style=" + "margin-top:-2px;" + ">Số hộ đã nộp: " + ThuPhiService.soHoKhau(this.dotThuModel.getMaDotThu())
               + "</div></html>";
         return res;
     }

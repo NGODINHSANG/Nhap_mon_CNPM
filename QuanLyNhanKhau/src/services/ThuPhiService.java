@@ -76,32 +76,55 @@ public class ThuPhiService {
         return list;
     }
 
-    //Hien thi thong tin chi tiet dot thu
-    public DotThuBean getDotThu(String maDotThu){
-        DotThuBean dotThuBean = new DotThuBean();
+    //Thong ke tong so tien can thu
+    public static int tongSoTienCanNop(String maDotThu){
+        int tien = 0;
         try{
             Connection connection = MysqlConnection.getMysqlConnection();
-            String Query = "Select * FROM dot_thu WHERE maDotThu = " + maDotThu;
-            PreparedStatement preparedStatement = (PreparedStatement)connection.prepareStatement(Query);
+            String query = "SELECT (SUM(soNhanKhau) * soTienTrenMotNhanKhau) AS sotien FROM `dot_thu` dt,`thong_tin_thu_phi` tt WHERE dt.maDotThu = tt.maDotThu AND tt.maDotThu = '" + maDotThu +"'";         
+            PreparedStatement preparedStatement = (PreparedStatement)connection.prepareStatement(query);
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
-                DotThuModel dotThuModel = dotThuBean.getDotThuModel();
-                dotThuModel.setIDDotThu(rs.getInt("idDotThu"));
-                dotThuModel.setMaDotThu(maDotThu);
-                dotThuModel.setTenDotThu(rs.getString("tenDotThu"));
-                dotThuModel.setLoaiPhiThu(rs.getString("loaiPhiThu"));
-                dotThuModel.setNgayBatDauThu(rs.getDate("ngayBatDauThu"));
-                dotThuModel.setNgayKetThucThu(rs.getDate("ngayKetThucThu"));
-                dotThuModel.setSoTienTrenMotNhanKhau(rs.getInt("soTienTrenMotNhanKhau"));
-                dotThuModel.setNgayTao(rs.getDate("ngayTao"));
+                tien = rs.getInt("sotien");
             }
-            preparedStatement.close();
-            connection.close();
+        }catch(ClassNotFoundException | SQLException e){
+            System.out.println(e.getMessage());
         }
-        catch(Exception e){
-            System.out.println(e.getMessage());   
+        return tien;
+    }
+    
+    //Thong ke tong so tien trong moi dot thu
+    public static int tongSoTien(String maDotThu){
+        int tien = 0;
+        try{
+            Connection connection = MysqlConnection.getMysqlConnection();
+            String query = "SELECT SUM(tongSoTien) AS tien FROM `thong_tin_thu_phi` WHERE maDotThu = '" + maDotThu + "'";
+            PreparedStatement preparedStatement = (PreparedStatement)connection.prepareStatement(query); 
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()){
+                tien = rs.getInt("tien");
+            }
+        }catch(ClassNotFoundException | SQLException e){
+            System.out.println(e.getMessage());
         }
-        return dotThuBean;
+        return tien;
+    }
+    
+    //Thong ke so ho da nop tien
+    public static int soHoKhau(String maDotThu){
+        int tongSoHo = 0;
+        try{
+            Connection connection = MysqlConnection.getMysqlConnection();
+            String query = "SELECT COUNT(*) as tongSoHo FROM thong_tin_thu_phi WHERE maDotThu = '" + maDotThu +"' AND tongSoTien > 0 GROUP BY maDotThu";
+            PreparedStatement preparedStatement = (PreparedStatement)connection.prepareStatement(query);
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()){
+                tongSoHo = rs.getInt("tongSoHo");
+            }
+        }catch(ClassNotFoundException | SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return tongSoHo;
     }
     
     //Tim kiem dot thu theo ten
