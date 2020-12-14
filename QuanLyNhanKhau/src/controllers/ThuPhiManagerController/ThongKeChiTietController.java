@@ -86,7 +86,7 @@ private JTextField jtfSearch;
        // }catch (Exception e) {
        //     JOptionPane.showMessageDialog(maHKjtf, "Vui lòng nhập đúng kiểu dữ liệu!!", "Warring", JOptionPane.ERROR_MESSAGE);
        // }        
-        this.listThongTinThuPhiBean = this.thuPhiService.getListThongTinThuPhi(maHK);
+        this.listThongTinThuPhiBean = this.thuPhiService.getListThongTinThuPhiTK(maHK);
                  
         setDataTable();
     

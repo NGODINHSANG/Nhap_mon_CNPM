@@ -43,7 +43,7 @@ public class TaoDanhSachThuController {
      public TaoDanhSachThuController( JPanel tableJpn, String maDotThu) {
 //        this.jtfSearch = searchJtf;
         this.jpnView = tableJpn;
-        this.listThongTinThuPhiBeans = thuPhiService.getListThongTinThuPhi(maDotThu);
+        this.listThongTinThuPhiBeans = thuPhiService.getListThongTinThuPhiDS(maDotThu);
         setData();
 
     }

@@ -163,7 +163,39 @@ public class ThuPhiService {
         return list;
     }
     
-    public List<ThongTinThuPhiBean> getListThongTinThuPhi(String maHKjtf ) {
+    public List<ThongTinThuPhiBean> getListThongTinThuPhiDS(String maDotThu) {
+        List<ThongTinThuPhiBean> list = new ArrayList<>(); 
+        try{
+            List<ThongTinThuPhiModel> listThongTinThuPhiModel = new ArrayList<>();
+            try (Connection connection = MysqlConnection.getMysqlConnection()) {
+                String Query = "Select * FROM thong_tin_thu_phi "
+                        + "WHERE maDotThu = ?";
+                try (PreparedStatement preparedStatement = (PreparedStatement)connection.prepareStatement(Query)) {
+                    preparedStatement.setString(1,maDotThu);
+                    ResultSet rs = preparedStatement.executeQuery();
+                    while(rs.next()){
+                        ThongTinThuPhiBean temp = new ThongTinThuPhiBean();
+                        ThongTinThuPhiModel thongTinThuPhiModel = temp.getThongTinThuPhiModel();
+                        thongTinThuPhiModel.setMaDotThu(rs.getString(1));
+                        thongTinThuPhiModel.setMaHoKhau(rs.getString(2));
+                        thongTinThuPhiModel.setSoNhanKhau(rs.getInt(3));
+                        thongTinThuPhiModel.setTongSoTien(rs.getInt(4));
+                        thongTinThuPhiModel.setNgayThu(rs.getDate(5));
+                        //listThongTinThuPhiModel.add(thongTinThuPhiModel);
+                        temp.setThongTinThuPhiModel(thongTinThuPhiModel);
+                        list.add(temp);
+                    }
+                }
+            }
+        }
+        catch(ClassNotFoundException | SQLException e){
+            System.out.println(e.getMessage());   
+        }
+        return list;
+    }
+   
+    
+    public List<ThongTinThuPhiBean> getListThongTinThuPhiTK(String maHKjtf ) {
         List<ThongTinThuPhiBean> list = new ArrayList<>(); 
         try{
             List<ThongTinThuPhiModel> listThongTinThuPhiModel = new ArrayList<>();

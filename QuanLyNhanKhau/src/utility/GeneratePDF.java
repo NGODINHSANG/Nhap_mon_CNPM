@@ -52,7 +52,7 @@ public class GeneratePDF {
             
             //JOptionPane.showMessageDialog(null, "Có lỗi xảy ra! vui lòng kiểm tra lại.", "Warning!!", JOptionPane.WARNING_MESSAGE);
             ThuPhiService thuPhiService = new ThuPhiService();
-            List<ThongTinThuPhiBean> thongTinThuPhi = thuPhiService.getListThongTinThuPhi(maDotThuSearch);
+            List<ThongTinThuPhiBean> thongTinThuPhi = thuPhiService.getListThongTinThuPhiDS(maDotThuSearch);
             String path = "";
             JFileChooser j = new JFileChooser();
             j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
