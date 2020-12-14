@@ -38,7 +38,7 @@ public class TableModelThuPhi {
                 obj[2] = item.getLoaiPhiThu();
                 obj[3] = item.getNgayBatDauThu().toString();
                 obj[4] = item.getNgayKetThucThu().toString();
-                //obj[5] = item.getSoTienTrenMotNhanKhau();
+                obj[5] = item.getSoTienTrenMotNhanKhau();
                 dtm.addRow(obj);
             
         });
