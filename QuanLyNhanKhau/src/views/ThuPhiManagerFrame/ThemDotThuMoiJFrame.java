@@ -347,7 +347,7 @@ public class ThemDotThuMoiJFrame extends javax.swing.JFrame {
             temp.setNgayBatDauThu(ngayBatDauThu.getDate());
             temp.setNgayKetThucThu(ngayKetThucThu.getDate());
             temp.setNgayTao(ngayTao.getDate());
-            String tmp = loaiPhi.getSelectedIndex()== 1?"Bắt buộc":"Không bắt buộc";
+            String tmp = loaiPhi.getSelectedIndex()== 1?"Không bắt buộc":"Bắt buộc";
             temp.setLoaiPhiThu(tmp);
             temp.setSoTienTrenMotNhanKhau(Integer.parseInt(soTien.getText()));
             try{
