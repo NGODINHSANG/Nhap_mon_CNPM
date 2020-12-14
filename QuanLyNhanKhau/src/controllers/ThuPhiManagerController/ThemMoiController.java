@@ -10,6 +10,7 @@ import Bean.ThongTinThuPhiBean;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import models.DotThuModel;
@@ -18,27 +19,27 @@ import services.MysqlConnection;
 
 /**
  *
- * @author SangND
+ * @author Dell
  */
 public class ThemMoiController {
     public boolean themMoiDotThu(DotThuBean doThuBean) throws SQLException, ClassNotFoundException{
         DotThuModel dotThuModel = doThuBean.getDotThuModel();
         try{
             Connection connection = MysqlConnection.getMysqlConnection();
-            String query = "INSERT INTO dot_thu (idDotThu, maDotThu, tenDotThu, loaiPhiThu, ngayBatDauThu, ngayKetThucThu, soTienTrenMotNhanKhau, ngayTao)" 
-                    + "value (?,?,?,?,?,?,?,?)";
+            String query = "INSERT INTO dot_thu ( maDotThu, tenDotThu, loaiPhiThu, ngayBatDauThu, ngayKetThucThu, soTienTrenMotNhanKhau, ngayTao)" 
+                    + "value (?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1,dotThuModel.getIDDotThu());
-            preparedStatement.setString(2,dotThuModel.getMaDotThu());
-            preparedStatement.setString(3,dotThuModel.getTenDotThu());
-            preparedStatement.setString(4,dotThuModel.getLoaiPhiThu());
+            //preparedStatement.setInt(1,dotThuModel.getIDDotThu());
+            preparedStatement.setString(1,dotThuModel.getMaDotThu());
+            preparedStatement.setString(2,dotThuModel.getTenDotThu());
+            preparedStatement.setString(3,dotThuModel.getLoaiPhiThu());
             Date ngayBatDau = new Date(dotThuModel.getNgayBatDauThu().getTime());
             Date ngayKetThuc = new Date(dotThuModel.getNgayKetThucThu().getTime());
             Date ngayTao = new Date (dotThuModel.getNgayTao().getTime());
-            preparedStatement.setDate(5, ngayBatDau);
-            preparedStatement.setDate(6, ngayKetThuc);
-            preparedStatement.setInt(7, dotThuModel.getSoTienTrenMotNhanKhau());
-            preparedStatement.setDate(8, ngayTao);
+            preparedStatement.setDate(4, ngayBatDau);
+            preparedStatement.setDate(5, ngayKetThuc);
+            preparedStatement.setInt(6, dotThuModel.getSoTienTrenMotNhanKhau());
+            preparedStatement.setDate(7, ngayTao);
             preparedStatement.execute();
             preparedStatement.close();
             connection.close();
@@ -75,5 +76,22 @@ public class ThemMoiController {
             JOptionPane.showMessageDialog(null, "Có lỗi xảy ra! vui lòng kiểm tra lại.", "Warning!!", JOptionPane.WARNING_MESSAGE);
             return false;
         }
+    }
+    
+    public boolean checkMaDotThu(String maDotThu){
+        try{
+            Connection connection = MysqlConnection.getMysqlConnection();
+            String query = "SELECT * FROM dot_thu WHERE maDotThu = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1,maDotThu);
+            ResultSet rs = preparedStatement.executeQuery();
+            if(rs.next()){
+                return true;
+            }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Có lỗi xảy ra! vui lòng kiểm tra lại.", "Warning!!", JOptionPane.WARNING_MESSAGE);
+        }
+        return false;
     }
 }
