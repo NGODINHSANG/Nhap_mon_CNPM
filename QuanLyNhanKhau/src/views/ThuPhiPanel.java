@@ -136,7 +136,7 @@ public class ThuPhiPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ThemMoiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThemMoiBtnActionPerformed
-        ThemDotThuMoiJFrame themDotThuMoiJFrame = new ThemDotThuMoiJFrame(this.parentJFrame);
+        ThemDotThuMoiJFrame themDotThuMoiJFrame = new ThemDotThuMoiJFrame(this.controller, this.parentJFrame);
         themDotThuMoiJFrame.setLocationRelativeTo(null);
         themDotThuMoiJFrame.setResizable(false);
         themDotThuMoiJFrame.setVisible(true);
