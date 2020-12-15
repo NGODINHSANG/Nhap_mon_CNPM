@@ -222,9 +222,13 @@ public class ThongKeChiTietJFrame extends javax.swing.JFrame {
     private void checkBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBtnActionPerformed
         // TODO add your handling code here:
         if(this.checkBtn()){
-            if(controller.checkBtn(maHKjtf.getText()))
-            JOptionPane.showMessageDialog(rootPane, "OK","Check ID", JOptionPane.INFORMATION_MESSAGE);
-        this.availableIcon.setEnabled(true);
+            if(controller.checkBtn(maHKjtf.getText())){
+                JOptionPane.showMessageDialog(rootPane, "OK","Check ID", JOptionPane.INFORMATION_MESSAGE);
+                this.availableIcon.setEnabled(true);
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Không có đợt thu này trong hệ thống.", "Check Tên Đợt Thu", JOptionPane.WARNING_MESSAGE);
+                this.availableIcon.setEnabled(false);
+            }
         }
         else    JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập hết các trường bắt buộc", "Warning", JOptionPane.WARNING_MESSAGE);
        
