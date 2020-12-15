@@ -358,8 +358,8 @@ public class ThemDotThuMoiJFrame extends javax.swing.JFrame {
                 if(this.controller.themMoiDotThu(this.dotThuBean)){
                     JOptionPane.showMessageDialog(null, "Thêm thành công!!");
                     this.controller.capNhat(this.dotThuBean);
-                    //close();
-                    //parentController.refreshData();
+                    close();
+                    parentController.refreshData();
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -406,7 +406,7 @@ private boolean checkMaDotThu(){
  private boolean checkInForm(){
         if(this.maDotThu.getText().trim().isEmpty()
                 ||this.tenDotThu.getText().trim().isEmpty()
-                ||this.loaiPhi.getSelectedIndex() == 0
+                ||this.loaiPhi.getSelectedIndex() == -1
                 ||this.soTien.getText().trim().isEmpty()
                 ||this.ngayBatDauThu.getDate().toString().isEmpty()
                 ||this.ngayKetThucThu.getDate().toString().isEmpty()
