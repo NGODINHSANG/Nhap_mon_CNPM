@@ -8,7 +8,7 @@ package views.ThuPhiManagerFrame;
 
 import Bean.DotThuBean;
 import controllers.ThuPhiManagerController.ThemMoiController;
-
+import controllers.ThuPhiPanelController;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
@@ -24,6 +24,7 @@ public class ThemDotThuMoiJFrame extends javax.swing.JFrame {
     /**
      * Creates new form ThemDotThuMoiJFrame
      */
+    private ThuPhiPanelController parentController;
     private JFrame parentFrame;
     private DotThuBean dotThuBean;
     private ThemMoiController controller;
@@ -33,7 +34,8 @@ public class ThemDotThuMoiJFrame extends javax.swing.JFrame {
         initComponents();
     }
     
-    public ThemDotThuMoiJFrame(JFrame parentFrame){
+    public ThemDotThuMoiJFrame(ThuPhiPanelController parentController, JFrame parentFrame){
+        this.parentController = parentController;
         initComponents();
         this.parentFrame = parentFrame;
         this.parentFrame.setEnabled(false);
@@ -340,7 +342,9 @@ public class ThemDotThuMoiJFrame extends javax.swing.JFrame {
 
     private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
         // TODO add your handling code here:
-        DotThuModel temp = this.dotThuBean.getDotThuModel();
+         if(this.checkInForm()){
+            if(!this.controller.checkMaDotThu(maDotThu.getText())){
+            DotThuModel temp = this.dotThuBean.getDotThuModel();
             temp.setTenDotThu(tenDotThu.getText());
             //temp.setIDDotThu(Integer.parseInt(idDotThu.getText()));
             temp.setMaDotThu(maDotThu.getText());
@@ -354,11 +358,19 @@ public class ThemDotThuMoiJFrame extends javax.swing.JFrame {
                 if(this.controller.themMoiDotThu(this.dotThuBean)){
                     JOptionPane.showMessageDialog(null, "Thêm thành công!!");
                     this.controller.capNhat(this.dotThuBean);
+                    //close();
+                    //parentController.refreshData();
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
                 JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            }}
+            else {
+                JOptionPane.showMessageDialog(rootPane, "Đợt thu đã có, mời kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
             }
+            
+        }
+        
     }//GEN-LAST:event_createBtnActionPerformed
 
     private void maDotThuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maDotThuActionPerformed
@@ -385,7 +397,25 @@ public class ThemDotThuMoiJFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_checkActionPerformed
 private boolean checkMaDotThu(){
-        return !maDotThu.getText().trim().isEmpty();
+        if(maDotThu.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập hết các trường bắt buộc", "Warning", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+ private boolean checkInForm(){
+        if(this.maDotThu.getText().trim().isEmpty()
+                ||this.tenDotThu.getText().trim().isEmpty()
+                ||this.loaiPhi.getSelectedIndex() == 0
+                ||this.soTien.getText().trim().isEmpty()
+                ||this.ngayBatDauThu.getDate().toString().isEmpty()
+                ||this.ngayKetThucThu.getDate().toString().isEmpty()
+                ||this.ngayTao.getDate().toString().isEmpty())
+        {
+            JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập hết các trường bắt buộc", "Warning", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+            return true;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

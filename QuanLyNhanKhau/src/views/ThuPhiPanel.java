@@ -157,7 +157,7 @@ public class ThuPhiPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_ChiTietBtnActionPerformed
 
     private void CapNhatBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CapNhatBtnActionPerformed
-        CapNhatThongTinThuPhiJFrame capNhatThongTinThuPhiJFrame = new CapNhatThongTinThuPhiJFrame(this.parentJFrame);
+        CapNhatThongTinThuPhiJFrame capNhatThongTinThuPhiJFrame = new CapNhatThongTinThuPhiJFrame(this.controller,this.parentJFrame);
         capNhatThongTinThuPhiJFrame.setLocationRelativeTo(null);
         capNhatThongTinThuPhiJFrame.setResizable(false);
         capNhatThongTinThuPhiJFrame.setVisible(true);

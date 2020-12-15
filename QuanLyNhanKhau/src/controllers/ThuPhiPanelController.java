@@ -155,4 +155,9 @@ public class ThuPhiPanelController {
     public void setTableJpn(JPanel tableJpn) {
         this.jpnView = tableJpn;
     }
+    
+    public void refreshData(){
+        this.listDotThuBeans = this.thuPhiService.getListDotThu();
+        setData();
+    }
 }
