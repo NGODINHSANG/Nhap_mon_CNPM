@@ -63,7 +63,7 @@ public class GeneratePDF {
             }
             Document doc = new Document();
         
-            Font f = new Font(BaseFont.createFont("F:\\Nhap_Mon_CNPM\\ver4_15_12\\Nhap_mon_CNPM/vuArial.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED));
+            Font f = new Font(BaseFont.createFont("G:\\btl\\Nhap_mon_CNPM/vuArial.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED));
             
             
             try {
@@ -72,7 +72,7 @@ public class GeneratePDF {
                 
                 
                 //Tạo file pdf từ jtable
-                PdfPTable tbl = new PdfPTable(4);
+                PdfPTable tbl = new PdfPTable(5);
                 
                 //adding header
                 PdfPCell c1 = new PdfPCell (new Phrase("Mã đợt thu",f));
@@ -81,16 +81,20 @@ public class GeneratePDF {
                 tbl.addCell(c2);
                 PdfPCell c3 = new PdfPCell (new Phrase("Số nhân khẩu",f));
                 tbl.addCell(c3);
-                PdfPCell c4 = new PdfPCell (new Phrase("Ngày thu",f));
+                PdfPCell c4 = new PdfPCell (new Phrase("Số tiền mỗi hộ",f));
                 tbl.addCell(c4);
+                PdfPCell c5 = new PdfPCell (new Phrase("Ngày thu",f));
+                tbl.addCell(c5);
                 thongTinThuPhi.forEach((ThongTinThuPhiBean item) -> {
                     String maDotThu = item.getThongTinThuPhiModel().getMaDotThu();
                     String maHoKhau = item.getThongTinThuPhiModel().getMaHoKhau();
                     String soNhanKhau = Integer.toString(item.getThongTinThuPhiModel().getSoNhanKhau());
-                    String ngayThu = " ";
+                    String soTien = Integer.toString(item.getThongTinThuPhiModel().getTongSoTien());
+                    String ngayThu = (item.getThongTinThuPhiModel().getNgayThu()==null)?" ":item.getThongTinThuPhiModel().getNgayThu().toString();
                     tbl.addCell(new Phrase(maDotThu,f));
                     tbl.addCell(new Phrase(maHoKhau,f));
                     tbl.addCell(soNhanKhau);
+                    tbl.addCell(soTien);
                     tbl.addCell(ngayThu);
                 });
                 doc.add(tbl);
