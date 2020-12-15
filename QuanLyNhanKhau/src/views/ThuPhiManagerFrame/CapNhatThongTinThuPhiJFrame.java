@@ -273,7 +273,7 @@ void close() {
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
         // TODO add your handling code here:
         if(this.checkInForm()){
-            if(controller.checkMaDotThu(maDotThu.getText())||controller.checkMaHoKhau(maHoKhau.getText())){
+            if(controller.checkMaDotThu(maDotThu.getText())&&controller.checkMaHoKhau(maHoKhau.getText())){
                 ThongTinThuPhiModel temp = this.thongTinThuPhiBean.getThongTinThuPhiModel();
             temp.setMaDotThu(maDotThu.getText());
             temp.setMaHoKhau(maHoKhau.getText());
