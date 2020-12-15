@@ -6,6 +6,10 @@
 package views;
 
 import controllers.ThuPhiMainFrameController;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,6 +25,17 @@ public class ThuPhiMainFrame extends javax.swing.JFrame {
         setTitle("QUẢN LÝ THU PHÍ");
         ThuPhiMainFrameController controller = new ThuPhiMainFrameController(this.thuPhiPanel,this);
         controller.setView();
+        
+        // confirm de thuc hien dong
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                if (JOptionPane.showConfirmDialog(null, "Are you sure to close??", "Confirm", JOptionPane.YES_NO_OPTION) == 0) {
+                    dispose();
+                }
+            }
+        });
     }
 
     /**
