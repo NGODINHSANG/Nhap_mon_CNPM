@@ -6,6 +6,10 @@
 package views;
 
 import controllers.ThuPhiMainFrameController;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,6 +25,15 @@ public class ThuPhiMainFrame extends javax.swing.JFrame {
         setTitle("QUẢN LÝ THU PHÍ");
         ThuPhiMainFrameController controller = new ThuPhiMainFrameController(this.thuPhiPanel,this);
         controller.setView();
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                if (JOptionPane.showConfirmDialog(null, "Are you sure to close??", "Confirm", JOptionPane.YES_NO_OPTION) == 0) {
+                    dispose();
+                }
+            }
+        });
     }
 
     /**
@@ -32,67 +45,127 @@ public class ThuPhiMainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jpnContainer = new javax.swing.JPanel();
+        jpnMenu = new javax.swing.JPanel();
+        Home = new javax.swing.JPanel();
+        jblTrangChu = new javax.swing.JLabel();
+        NhanKhauBtn = new javax.swing.JPanel();
+        jlbThongKe = new javax.swing.JLabel();
         thuPhiPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
-        thuPhiPanel.setBackground(new java.awt.Color(255, 255, 255));
+        jpnContainer.setBackground(new java.awt.Color(255, 255, 255));
+
+        jpnMenu.setBackground(new java.awt.Color(153, 153, 153));
+
+        Home.setBackground(new java.awt.Color(0, 160, 50));
+
+        jblTrangChu.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jblTrangChu.setForeground(new java.awt.Color(255, 255, 255));
+        jblTrangChu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/app.png"))); // NOI18N
+        jblTrangChu.setText("Trang chủ");
+
+        javax.swing.GroupLayout HomeLayout = new javax.swing.GroupLayout(Home);
+        Home.setLayout(HomeLayout);
+        HomeLayout.setHorizontalGroup(
+            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HomeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jblTrangChu)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+        HomeLayout.setVerticalGroup(
+            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeLayout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(jblTrangChu)
+                .addGap(21, 21, 21))
+        );
+
+        NhanKhauBtn.setBackground(new java.awt.Color(102, 102, 102));
+        NhanKhauBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jlbThongKe.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jlbThongKe.setForeground(new java.awt.Color(255, 255, 255));
+        jlbThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/increasing-stocks-graphic.png"))); // NOI18N
+        jlbThongKe.setText("Thống Kê");
+
+        javax.swing.GroupLayout NhanKhauBtnLayout = new javax.swing.GroupLayout(NhanKhauBtn);
+        NhanKhauBtn.setLayout(NhanKhauBtnLayout);
+        NhanKhauBtnLayout.setHorizontalGroup(
+            NhanKhauBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(NhanKhauBtnLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jlbThongKe)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        NhanKhauBtnLayout.setVerticalGroup(
+            NhanKhauBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(NhanKhauBtnLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jlbThongKe)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jpnMenuLayout = new javax.swing.GroupLayout(jpnMenu);
+        jpnMenu.setLayout(jpnMenuLayout);
+        jpnMenuLayout.setHorizontalGroup(
+            jpnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jpnMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(NhanKhauBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jpnMenuLayout.setVerticalGroup(
+            jpnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnMenuLayout.createSequentialGroup()
+                .addComponent(Home, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(NhanKhauBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(374, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout thuPhiPanelLayout = new javax.swing.GroupLayout(thuPhiPanel);
         thuPhiPanel.setLayout(thuPhiPanelLayout);
         thuPhiPanelLayout.setHorizontalGroup(
             thuPhiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 749, Short.MAX_VALUE)
+            .addGap(0, 820, Short.MAX_VALUE)
         );
         thuPhiPanelLayout.setVerticalGroup(
             thuPhiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/thuphi2.png"))); // NOI18N
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/thuphi2.png"))); // NOI18N
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/thuphi2.png"))); // NOI18N
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/thuphi2.png"))); // NOI18N
+        javax.swing.GroupLayout jpnContainerLayout = new javax.swing.GroupLayout(jpnContainer);
+        jpnContainer.setLayout(jpnContainerLayout);
+        jpnContainerLayout.setHorizontalGroup(
+            jpnContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnContainerLayout.createSequentialGroup()
+                .addComponent(jpnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(thuPhiPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jpnContainerLayout.setVerticalGroup(
+            jpnContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jpnMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jpnContainerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(thuPhiPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addComponent(thuPhiPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jpnContainer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2)
-                        .addGap(7, 7, 7))
-                    .addComponent(thuPhiPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addComponent(jpnContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -104,10 +177,12 @@ public class ThuPhiMainFrame extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel Home;
+    private javax.swing.JPanel NhanKhauBtn;
+    private javax.swing.JLabel jblTrangChu;
+    private javax.swing.JLabel jlbThongKe;
+    private javax.swing.JPanel jpnContainer;
+    private javax.swing.JPanel jpnMenu;
     private javax.swing.JPanel thuPhiPanel;
     // End of variables declaration//GEN-END:variables
 }
