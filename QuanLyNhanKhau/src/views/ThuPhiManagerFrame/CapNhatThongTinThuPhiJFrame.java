@@ -285,9 +285,11 @@ void close() {
                     if (JOptionPane.showConfirmDialog(null, "Bạn có muốn nhập tiếp??", "Cập nhật!!", JOptionPane.YES_NO_OPTION) == 0) {
                         close();
                         new CapNhatThongTinThuPhiJFrame(this.parentController,this.parentFrame);//.setLocationRelativeTo(null);
+                    }   else{
+                        close();
                         parentController.refreshData();
-                    }   else
-                    close(); 
+                    }
+                     
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -315,7 +317,7 @@ void close() {
         if(this.checkIDHoKhau()){
             if(controller.checkMaHoKhau(maHoKhau.getText())){
             JOptionPane.showMessageDialog(rootPane, "ID đã có","Check ID", JOptionPane.INFORMATION_MESSAGE);
-            this.availableDotThu.setEnabled(true);
+            this.availableHoKhau.setEnabled(true);
             }
             else JOptionPane.showMessageDialog(rootPane, "ID chưa có","Check ID", JOptionPane.INFORMATION_MESSAGE);
         
