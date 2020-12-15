@@ -63,7 +63,7 @@ public class GeneratePDF {
             }
             Document doc = new Document();
         
-            Font f = new Font(BaseFont.createFont("G:\\btl\\Nhap_mon_CNPM/vuArial.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED));
+            Font f = new Font(BaseFont.createFont("F:\\Nhap_Mon_CNPM\\ver4_15_12\\Nhap_mon_CNPM/vuArial.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED));
             
             
             try {
