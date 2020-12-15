@@ -51,6 +51,7 @@ public class LoginUI extends javax.swing.JFrame {
                 mainFrame.setVisible(true);
                 
             } else if(this.cont.login(userName, password)==2){
+                dispose();
                 ThuPhiMainFrame thuPhiMainFrame = new ThuPhiMainFrame();
                 thuPhiMainFrame.setLocationRelativeTo(null);
                 thuPhiMainFrame.setResizable(false);
