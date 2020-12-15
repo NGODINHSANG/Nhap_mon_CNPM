@@ -156,6 +156,8 @@ void close(){
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         generator.generatePDF(fileName.getText(),maDotThu);
+        JOptionPane.showMessageDialog(null, "Tạo thành công!!");
+        close();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void fileNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileNameActionPerformed
