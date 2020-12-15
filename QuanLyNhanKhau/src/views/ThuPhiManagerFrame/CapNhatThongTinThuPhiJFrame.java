@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import Bean.ThongTinThuPhiBean;
 import controllers.ThuPhiManagerController.CapNhatController;
+import controllers.ThuPhiPanelController;
 import models.ThongTinThuPhiModel;
 
 /**
@@ -22,7 +23,7 @@ public class CapNhatThongTinThuPhiJFrame extends javax.swing.JFrame {
     /**
      * Creates new form CapNhatDotThu
      */    
-    
+    private ThuPhiPanelController parentController;
     private ThongTinThuPhiBean thongTinThuPhiBean;
     private CapNhatController controller;
     private JFrame parentFrame;
@@ -31,8 +32,8 @@ public class CapNhatThongTinThuPhiJFrame extends javax.swing.JFrame {
         initComponents();
     }
     
-    public CapNhatThongTinThuPhiJFrame(JFrame parentFrame) {
-       
+    public CapNhatThongTinThuPhiJFrame(ThuPhiPanelController parentController,JFrame parentFrame) {
+        this.parentController = parentController;
         this.parentFrame = parentFrame;
         controller = new CapNhatController();
         this.thongTinThuPhiBean = new ThongTinThuPhiBean();
@@ -283,7 +284,8 @@ void close() {
                     JOptionPane.showMessageDialog(null, "Thêm thành công!!");
                     if (JOptionPane.showConfirmDialog(null, "Bạn có muốn nhập tiếp??", "Cập nhật!!", JOptionPane.YES_NO_OPTION) == 0) {
                         close();
-                         new CapNhatThongTinThuPhiJFrame(this.parentFrame);//.setLocationRelativeTo(null);
+                        new CapNhatThongTinThuPhiJFrame(this.parentController,this.parentFrame);//.setLocationRelativeTo(null);
+                        parentController.refreshData();
                     }   else
                     close(); 
                 }
