@@ -37,7 +37,7 @@ public class TaoDanhSachThuController {
     private JPanel jpnView;
     private final ThuPhiService thuPhiService = new ThuPhiService();
     private final TableModelThuPhi tableModelThuPhi = new TableModelThuPhi();
-    private final String COLUNMS[] = {"Mã đợt thu", "Mã hộ khẩu","Số nhân khẩu","Số tiền","Ngay thu"};  
+    private final String COLUNMS[] = {"Mã đợt thu", "Mã hộ khẩu","Số nhân khẩu","Số tiền","Ngày thu"};  
     private JFrame parentJFrame;
     
      public TaoDanhSachThuController( JPanel tableJpn, String maDotThu) {
