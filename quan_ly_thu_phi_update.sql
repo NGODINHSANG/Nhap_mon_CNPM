@@ -22,7 +22,7 @@ CREATE TABLE `thong_tin_thu_phi` (
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 ALTER TABLE `dot_thu`
-	ADD FULLTEXT KEY maDotThu (maDotThu),
+	ADD FULLTEXT KEY maDotThu (maDotThu, tenDotThu),
     ADD PRIMARY KEY idDotThu (idDotThu);
 ALTER TABLE `dot_thu` MODIFY COLUMN `idDotThu` INT AUTO_INCREMENT;
 ALTER TABLE `dot_thu` AUTO_INCREMENT=1;
