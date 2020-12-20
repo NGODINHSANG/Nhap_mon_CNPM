@@ -84,7 +84,7 @@ public class ThuPhiMainFrame extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
-        NhanKhauBtn.setBackground(new java.awt.Color(102, 102, 102));
+        NhanKhauBtn.setBackground(new java.awt.Color(0, 0, 0));
         NhanKhauBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jlbThongKe.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N

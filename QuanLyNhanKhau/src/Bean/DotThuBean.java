@@ -85,8 +85,8 @@ public class DotThuBean {
                     +"</tr>";          
         }
         res +=  "</table>"
-           //   + "<h3>Tồng số tiền đã thu: " + ThuPhiService.tongSoTien(this.dotThuModel.getMaDotThu()) +"(đồng)"
-          //    + "<h3 style=" + "margin-top:-2px;" + ">Số hộ đã nộp: " + ThuPhiService.soHoKhau(this.dotThuModel.getMaDotThu())
+              + "<h3>Tồng số tiền đã thu: " + ThuPhiService.tongSoTien(this.dotThuModel.getMaDotThu()) +"(đồng)"
+              + "<h3 style=" + "margin-top:-2px;" + ">Số hộ đã nộp: " + ThuPhiService.soHoKhau(this.dotThuModel.getMaDotThu())
               + "</div></html>";
         return res;
     }
