@@ -358,7 +358,6 @@ public class ThemDotThuMoiJFrame extends javax.swing.JFrame {
                 if(this.controller.themMoiDotThu(this.dotThuBean)){
                     JOptionPane.showMessageDialog(null, "Thêm thành công!!");
                     this.controller.capNhat(this.dotThuBean);
-                    close();
                     parentController.refreshData();
                 }
             } catch (Exception e) {
@@ -386,12 +385,13 @@ public class ThemDotThuMoiJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(this.checkMaDotThu()){
             if(!this.controller.checkMaDotThu(maDotThu.getText())){
-            JOptionPane.showMessageDialog(rootPane, "Đợt thu chưa có","Check mã đợt thu", JOptionPane.INFORMATION_MESSAGE);
-            this.availableDotThu.setEnabled(true);
+                JOptionPane.showMessageDialog(rootPane, "Đợt thu chưa có","Check mã đợt thu", JOptionPane.INFORMATION_MESSAGE);
+                this.availableDotThu.setEnabled(false);
             }
-            else JOptionPane.showMessageDialog(rootPane, "Đợt thu đã có","Check mã đợt thu", JOptionPane.INFORMATION_MESSAGE);
-        
-        
+            else{
+                JOptionPane.showMessageDialog(rootPane, "Đợt thu đã có","Check mã đợt thu", JOptionPane.INFORMATION_MESSAGE);
+                this.availableDotThu.setEnabled(true);
+            } 
         }else{
              JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập hết các trường bắt buộc", "Warning", JOptionPane.WARNING_MESSAGE);
         }

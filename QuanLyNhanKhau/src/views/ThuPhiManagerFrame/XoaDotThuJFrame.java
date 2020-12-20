@@ -7,6 +7,7 @@ package views.ThuPhiManagerFrame;
 
 import Bean.DotThuBean;
 import controllers.ThuPhiManagerController.XoaController;
+import controllers.ThuPhiPanelController;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
@@ -22,6 +23,7 @@ import models.DotThuModel;
  */
 public class XoaDotThuJFrame extends javax.swing.JFrame {
 	//Declare
+    private ThuPhiPanelController parentController;
     private JFrame parentFrame;
     private XoaController controller;
     private DotThuBean dotThuBean;
@@ -31,7 +33,8 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
     public XoaDotThuJFrame() {
         initComponents();
     }
-    public XoaDotThuJFrame(JFrame parentFrame) {
+    public XoaDotThuJFrame(ThuPhiPanelController parentController,JFrame parentFrame) {
+        this.parentController = parentController;
         this.parentFrame = parentFrame;
         initComponents();
         controller = new XoaController();
@@ -219,10 +222,11 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
                     try {
                         if(controller.xoaDotThu(this.dotThuBean))
                            JOptionPane.showMessageDialog(rootPane, "Xóa thành công", "Xóa Đợt Thu", JOptionPane.INFORMATION_MESSAGE) ;
+                           close();
+                           parentController.refreshData();
                     } catch (Exception e) {
                        System.out.println(e.getMessage());
                        JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
-      
                     }
                 };
             }else{
@@ -241,6 +245,7 @@ public class XoaDotThuJFrame extends javax.swing.JFrame {
                 this.availableDotThu.setEnabled(true);
             }else{
                 JOptionPane.showMessageDialog(rootPane, "Không có đợt thu này trong hệ thống.", "Check Tên Đợt Thu", JOptionPane.WARNING_MESSAGE);
+                this.availableDotThu.setEnabled(false);
             }
         }else{
             JOptionPane.showMessageDialog(rootPane, "Please Enter the required fields !", "Warning", JOptionPane.WARNING_MESSAGE);

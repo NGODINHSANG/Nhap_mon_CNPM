@@ -201,7 +201,7 @@ public class ThuPhiService {
             List<ThongTinThuPhiModel> listThongTinThuPhiModel = new ArrayList<>();
             try (Connection connection = MysqlConnection.getMysqlConnection()) {
                 String Query = "Select * FROM thong_tin_thu_phi "
-                        + "WHERE maHoKhau = ?";
+                        + "WHERE maHoKhau = ? AND tongSoTien <>0";
                 try (PreparedStatement preparedStatement = (PreparedStatement)connection.prepareStatement(Query)) {
                     preparedStatement.setString(1,maHKjtf);
                     ResultSet rs = preparedStatement.executeQuery();
@@ -230,8 +230,8 @@ public class ThuPhiService {
         try{
             List<ThongTinThuPhiModel> listThongTinThuPhiModel = new ArrayList<>();
             try (Connection connection = MysqlConnection.getMysqlConnection()) {
-                String Query = "Select * FROM thong_tin_thu_phi ";
-                       // + "WHERE maDotThu = ?";
+                String Query = "Select * FROM thong_tin_thu_phi "
+                        + "WHERE tongSoTien <> 0";
                 try (PreparedStatement preparedStatement = (PreparedStatement)connection.prepareStatement(Query)) {
                     //preparedStatement.setString(1,maDotThu);
                     ResultSet rs = preparedStatement.executeQuery();

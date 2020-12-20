@@ -63,7 +63,7 @@ public class GeneratePDF {
             }
             Document doc = new Document();
         
-            Font f = new Font(BaseFont.createFont("G:\\btl\\Nhap_mon_CNPM/vuArial.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED));
+            Font f = new Font(BaseFont.createFont("G:\\Nhap_mon_CNPM/vuArial.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED));
             
             
             try {
@@ -89,7 +89,7 @@ public class GeneratePDF {
                     String maDotThu = item.getThongTinThuPhiModel().getMaDotThu();
                     String maHoKhau = item.getThongTinThuPhiModel().getMaHoKhau();
                     String soNhanKhau = Integer.toString(item.getThongTinThuPhiModel().getSoNhanKhau());
-                    String soTien = Integer.toString(item.getThongTinThuPhiModel().getTongSoTien());
+                    String soTien = (item.getThongTinThuPhiModel().getTongSoTien()==0)?" ":Integer.toString(item.getThongTinThuPhiModel().getTongSoTien());
                     String ngayThu = (item.getThongTinThuPhiModel().getNgayThu()==null)?" ":item.getThongTinThuPhiModel().getNgayThu().toString();
                     tbl.addCell(new Phrase(maDotThu,f));
                     tbl.addCell(new Phrase(maHoKhau,f));
